@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">Simpan</button>
+</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', function(){
+        Swal.fire({
+            title:'Selamat',
+            icon:'success',
+            text:'Anda Berhasil Absen',
+        })
+    })
+</script>
+</html> -->
+<!DOCTYPE html>
+{% load static %}
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title>Popup Modal Box</title>-->
+    <!-- CSS -->
+    <link href="{%static 'css/styles.css' %}" rel="stylesheet" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+  </head>
+  <body>
+    <section>
+      <button class="show-modal">Show Modal</button>
+      <span class="overlay"></span>
+
+      <div class="modal-box">
+        <h1><Strong>Terimakasih!</Strong></h1><br>
+        <i class="fa-regular fa-circle-check"></i><br>
+        <h4>Anda Berhasil Absen</h4><br><br>
+        <h5>Minggu dan Tanggal</h5><br><br>
+        <h6>Waktu Kehadiran</h6>
+
+        <div class="buttons">
+          <button class="close-btn">Ok</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const section = document.querySelector("section"),
+        overlay = document.querySelector(".overlay"),
+        showBtn = document.querySelector(".show-modal"),
+        closeBtn = document.querySelector(".close-btn");
+
+      showBtn.addEventListener("click", () => section.classList.add("active"));
+
+      overlay.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
+
+      closeBtn.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
+    </script>
+  </body>
+</html>
+
