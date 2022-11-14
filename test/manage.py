@@ -2,14 +2,14 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from cv2 import cv2
-from flask import Flask,request,render_template
-from datetime import date
-from datetime import datetime
-import numpy as np
-from sklearn.neighbors import KNeighborsClassifier
-import pandas as pd
-import joblib
+# from cv2 import cv2
+# from flask import Flask,request,render_template
+# from datetime import date
+# from datetime import datetime
+# import numpy as np
+# from sklearn.neighbors import KNeighborsClassifier
+# import pandas as pd
+# import joblib
 
 
 def main():
