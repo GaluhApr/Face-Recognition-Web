@@ -178,16 +178,20 @@
                                         <th>Telepon</th>
                                         <th>Alamat</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for member in all_members %}
+                                    {% for Member in Members %}
                                     <tr>
-                                        <td>{{ member.firstname }}</td>
-                                        <td>{{ member.lastname }}</td>
-                                        <td>{{ member.address  }}</td>
+                                        <td>{{ Member.Nim }}</td>
+                                        <td>{{ Member.Foto }}</td>
+                                        <td>{{ Member.Nama }}</td>
+                                        <td>{{ Member.Kelas }}</td>
+                                        <td>{{ Member.Semester }}</td>
+                                        <td>{{ Member.Telepon }}</td>
+                                        <td>{{ Member.Alamat }}</td>
+                                        <td>{{ Member.Jenis_Kelamin }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
