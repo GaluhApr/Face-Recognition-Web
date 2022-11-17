@@ -28,6 +28,7 @@ urlpatterns = [
     path('sudahabsen/', adminsview.sudahabsen),
     path('tidakabsen/', adminsview.tidakabsen),
     path('screen/', adminsview.screen),
+    path('jadwal/', adminsview.jadwal),
     path('insert', adminsview.insert, name='insert'),
     
     
