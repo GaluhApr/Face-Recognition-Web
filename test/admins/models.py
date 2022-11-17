@@ -1,4 +1,6 @@
 from django.db import models
+import datetime
+import os
 
 # Create your models here.
 
@@ -9,16 +11,46 @@ class Post(models.Model):
     def __str__(self):
         return "{}".format(self.title)
 
+def filepath(request, filename):
+    old_filename = filename
+    filename = (old_filename)
+    return os.path.join('upload/', filename)
 
 class Member(models.Model):
+    gender = (
+        ('Laki-laki', 'Laki-laki'),
+        ('Perempuan', 'Perempuan')
+    )
+    golongan = (
+        ('A', 'A'),
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D'),
+        ('E', 'E'),
+        ('Internasional', 'Internasional')
+    )
+    smt = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+        ('6', '6'),
+        ('7', '7'),
+        ('8', '8'),
+    )
+    
     Nim = models.CharField(max_length=9)
-    Foto = models.ImageField()
-    Nama = models.TextField(max_length=20)
-    Kelas = models.TextField(max_length=10)
-    Semester = models.TextField(max_length=10)
-    Telepon = models.TextField(max_length=14)
+    Foto = models.ImageField(upload_to='upload/', blank=True, null=True)
+    Nama = models.CharField(max_length=20)
+    Kelas = models.TextField(choices=golongan)
+    Semester = models.TextField(choices=smt)
+    Telepon = models.CharField(max_length=14)
     Alamat = models.TextField(max_length=20)
-    Jenis_Kelamin = models.TextField(max_length=10)
+    Jenis_Kelamin = models.TextField(choices=gender)
+    
+    class Meta :
+        db_table = "admins_member"
     
     def __str__(self):
         return "{}".format(self.Nama)
