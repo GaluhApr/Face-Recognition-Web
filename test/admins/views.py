@@ -32,3 +32,6 @@ def tidakabsen(request):
 
 def screen(request):
     return render(request, 'attendancescreen.html')
+
+def jadwal(request):
+    return render(request, 'jadwal.html')
