@@ -27,6 +27,7 @@ urlpatterns = [
     path('dashboard/', adminsview.index),
     path('attendance/', adminsview.attendance),
     path('user/', adminsview.user),
+    path('dosen/', adminsview.dosen),
     path('sudahabsen/', adminsview.sudahabsen),
     path('tidakabsen/', adminsview.tidakabsen),
     path('screen/', adminsview.screen),
