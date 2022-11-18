@@ -42,7 +42,7 @@ def createmember(request):
     return render(request, 'success.html')
 
 
-def add_member(request):
+def add_dosen(request):
 	submitted = False
 	if request.method == "POST":
 		form = Memberform(request.POST, request.FILES)
@@ -58,6 +58,44 @@ def add_member(request):
 			submitted = True
 
 	return render(request, 'user.html', {'form':form, 'submitted':submitted})
+
+def dosen(request):
+    members = Member.objects.all()
+    context = {
+        'Members': members,
+        'form': Memberform()
+    }
+    
+    return render(request, 'dosen.html', context,)
+
+
+def createdosen(request):
+    No = request.POST["No"]
+    Nip = request.POST["Nip"]
+    Nama = request.POST["Nama"]
+
+    admins_member = Member(No=No, Nip=Nip, Nama=Nama)
+    admins_member.save()
+    return render(request, 'success.html')
+
+
+def add_member(request):
+	submitted = False
+	if request.method == "POST":
+		form = Memberform(request.POST, request.FILES)
+		if form.is_valid():
+			Member = form.save(commit=False)
+			# logged in user
+			Member.save()
+			#form.save()
+			return 	HttpResponseRedirect('/add_member?submitted=True')	
+	else:
+		form = Memberform
+		if 'submitted' in request.GET:
+			submitted = True
+
+	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
+
 def sudahabsen(request):
     return render(request, 'sudahabsen.html')
 
@@ -68,3 +106,6 @@ def tidakabsen(request):
 
 def screen(request):
     return render(request, 'attendancescreen.html')
+
+def jadwal(request):
+    return render(request, 'jadwal.html')
