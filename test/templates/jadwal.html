@@ -76,6 +76,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="/user">Data User</a>
                                 <a class="nav-link" href="/attendance">Data Kehadiran</a>
+                                <a class="nav-link" href="/jadwal">Jadwal</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -128,33 +129,24 @@
                                             <form method="POST">
                                                 {% csrf_token %}
                                                 <div class="mb-3">
-                                                    <label>Nim</label>
+                                                    <label>Id Jadwal</label>
                                                     <input type="text" id="Nim" class="form-control" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label>Nama</label>
+                                                    <label>Ruangan</label>
                                                     <input type="text" id="Nama" class="form-control" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label>Kelas</label>
+                                                    <label>Hari</label>
                                                     <input type="text" id="Kelas" class="form-control" />
                                                 </div> <div class="mb-3">
-                                                    <label>Semeste</label>
+                                                    <label>Jam Mulai</label>
                                                     <input type="text" id="Semester" class="form-control" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label>Telepon</label>
+                                                    <label>Jam Selesai</label>
                                                     <input type="text" id="Telepon" class="form-control" />
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label>Alamat</label>
-                                                    <input type="text" id="Alamat" class="form-control" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label>Jenis Kelamin</label>
-                                                    <input type="text" id="Jenis Kelamin" class="form-control" />
-                                                </div>
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -184,14 +176,15 @@
                                 <tbody>
                                     {% for Member in Members %}
                                     <tr>
-                                        <td>{{ Member.Nim }}</td>
-                                        <td>{{ Member.Foto }}</td>
-                                        <td>{{ Member.Nama }}</td>
-                                        <td>{{ Member.Kelas }}</td>
-                                        <td>{{ Member.Semester }}</td>
-                                        <td>{{ Member.Telepon }}</td>
-                                        <td>{{ Member.Alamat }}</td>
-                                        <td>{{ Member.Jenis_Kelamin }}</td>
+                                        <td>{{ Member.idJadwal }}</td>
+                                        <td>{{ Member.pertemuan }}</td>
+                                        <td>{{ Member.namaGol }}</td>
+                                        <td>{{ Member.mataKuliah }}</td>
+                                        <td>{{ Member.namaDosen }}</td>
+                                        <td>{{ Member.ruangan }}</td>
+                                        <td>{{ Member.hari }}</td>
+                                        <td>{{ Member.jamMulai }}</td>
+                                        <td>{{ Member.jamSelesai }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
