@@ -94,7 +94,7 @@ def add_member(request):
 		if 'submitted' in request.GET:
 			submitted = True
 
-	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
+	return render(request, 'user.html', {'form':form, 'submitted':submitted})
 
 def sudahabsen(request):
     return render(request, 'sudahabsen.html')

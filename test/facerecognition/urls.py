@@ -33,7 +33,7 @@ urlpatterns = [
     path('screen/', adminsview.screen),
     path('jadwal/', adminsview.jadwal),
     path('createmember/', adminsview.createmember, name='createmember'),
-    
+    path('', adminsview.add_member, name='add_member'),
     
 ]
 

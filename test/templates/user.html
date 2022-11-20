@@ -127,10 +127,10 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/createmember/" >
+                                            <form method="POST" action="" enctype="multipart/form-data">
                                                 {% csrf_token %}
-                                                <!-- {{ form.as_p }} -->
-                                                <div class="mb-3">
+                                                {{ form.as_p }}
+                                                <!-- <div class="mb-3">
                                                     <label>Nim</label>
                                                     <input type="text" id="Nim" class="form-control" name=Nim />
                                                 </div>
@@ -190,7 +190,7 @@
 
 
                                                     </select>
-                                                </div>
+                                                </div> -->
                                                 
 
                                         </div>
