@@ -78,6 +78,9 @@ def createdosen(request):
     admins_member.save()
     return render(request, 'success.html')
 
+def delete_member(request,delete_id):
+    Member.objects.filter(id=delete_id).delete()
+    return redirect('user.html')
 
 def add_member(request):
 	submitted = False
