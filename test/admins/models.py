@@ -57,30 +57,30 @@ class Member(models.Model):
     
 class foto(models.Model):
     idFoto = models.IntegerField()
-    namaFoto = models.TextField(max_length=50)
+    namaFoto = models.CharField(max_length=50)
     
     def __str__(self):
         return "{}".format(self.namaFoto)
     
 class absensi(models.Model):
-    idAbsen = models.TextField(max_length=50)
-    keterangan = models.TextField(max_length=50)
+    idAbsen = models.CharField(max_length=50)
+    keterangan = models.CharField(max_length=50)
     
     def __str__(self):
         return "{}".format(self.keterangan)
     
 class beritaAcara(models.Model):
-    idAcara = models.TextField(max_length=50)
-    pertemuan = models.TextField(max_length=5)
+    idAcara = models.CharField(max_length=50)
+    pertemuan = models.CharField(max_length=5)
     tanggal = models.DateTimeField()
     
     def __str__(self):
         return "{}".format(self.pertemuan)
     
 class jadwal(models.Model):
-    idJadwal = models.TextField(max_length=50)
-    ruangan = models.TextField(max_length=5)
-    hari = models.TextField(max_length=30)
+    idJadwal = models.CharField(max_length=50)
+    ruangan = models.CharField(max_length=5)
+    hari = models.CharField(max_length=30)
     jamMulai = models.IntegerField()
     jamSelesai = models.IntegerField()
     
@@ -88,23 +88,26 @@ class jadwal(models.Model):
         return "{}".format(self.ruangan)
     
 class golongan(models.Model):
-    idGol = models.TextField(max_length=2)
-    namaGol = models.TextField(max_length=50)
+    idGol = models.CharField(max_length=2)
+    namaGol = models.CharField(max_length=50)
     
     def __str__(self):
         return "{}".format(self.namaGol)
     
 class mataKuliah(models.Model):
-    kodeMK = models.TextField(max_length=10)
-    mataKuliah = models.TextField(max_length=50)
+    kodeMK = models.CharField(max_length=10)
+    mataKuliah = models.CharField(max_length=50)
     sks = models.IntegerField()
     
     def __str__(self):
         return "{}".format(self.mataKuliah)
     
 class dosen(models.Model):
-    nip = models.TextField(max_length=15)
-    namaDosen = models.TextField(max_length=50)
+    nip = models.CharField(max_length=15)
+    namaDosen = models.CharField(max_length=50)
     
+    class Meta :
+        db_table = "admins_dosen"
+        
     def __str__(self):
         return "{}".format(self.namaDosen)

@@ -65,7 +65,6 @@ def dosen(request):
         'Members': members,
         'form': Memberform()
     }
-    
     return render(request, 'dosen.html', context,)
 
 
@@ -96,13 +95,27 @@ def add_member(request):
 
 	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
 
+# # dosen
+# def createmember(request):
+#     Nim = request.POST["Nim"]
+#     Foto = request.POST["Foto"]
+#     Nama = request.POST["Nama"]
+#     Kelas = request.POST["Kelas"]
+#     Semester = request.POST["Semester"]
+#     Telepon = request.POST["Telepon"]
+#     Alamat = request.POST["Alamat"]
+#     Jenis_Kelamin = request.POST["Jenis_Kelamin"]
+
+#     admins_member = Member(Nim=Nim, Foto=Foto, Nama=Nama, Kelas=Kelas, Semester=Semester,
+#                         Telepon=Telepon, Alamat=Alamat, Jenis_Kelamin=Jenis_Kelamin)
+#     admins_member.save()
+#     return render(request, 'success.html')
+
 def sudahabsen(request):
     return render(request, 'sudahabsen.html')
 
-
 def tidakabsen(request):
     return render(request, 'tidakabsen.html')
-
 
 def screen(request):
     return render(request, 'attendancescreen.html')
