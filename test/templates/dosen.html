@@ -128,20 +128,16 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/createmember/" >
+                                            <form method="POST" action="/createdosen/" >
                                                 {% csrf_token %}
-                                                <!-- {{ form.as_p }} -->
-                                                <div class="mb-3">
-                                                    <label>No</label>
-                                                    <input type="text" id="No" class="form-control" name=No />
-                                                </div>
+                                                <!-- {{ form.as_p }} --> 
                                                 <div class="mb-3">
                                                     <label>Nip</label>
-                                                    <input type="text" id="Nip" class="form-control" name=Nip />
+                                                    <input type="text" id="Nip" class="form-control" name=nip />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label>Nama</label>
-                                                    <input type="text" id="Nama" class="form-control" name=Nama />
+                                                    <input type="text" id="Nama" class="form-control" name=namaDosen />
                                                 </div>
 
                                         </div>
@@ -157,14 +153,13 @@
                             <table id="table" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Nip</th>
                                         <th>Nama</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for Member in Members %}
+                                    {% for dosen in dosen %}
                                     <tr>
                                         <!-- <td>{{ Member.Nim }}</td>
                                         {% if Member.Foto %}
@@ -172,9 +167,8 @@
                                         {% else %}
                                         <td><img src="upload/Members.png" width="100px" height="100px" /></td>
                                         {% endif %} -->
-                                        <td>{{ Member.No }}</td>
-                                        <td>{{ Member.Nip }}</td>
-                                        <td>{{ Member.Nama }}</td>
+                                        <td>{{ dosen.nip }}</td>
+                                        <td>{{ dosen.namaDosen }}</td>
                                         
                                     </tr>
                                     {% endfor %}

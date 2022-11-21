@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Member
 from .forms import Memberform
+from .models import dosen  # type: ignore
+from .forms import dosenform
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponseRedirect
 
@@ -15,7 +17,7 @@ def index(request):
 def attendance(request):
     return render(request, 'attendance.html')
 
-
+#user
 def user(request):
     members = Member.objects.all()
     context = {
@@ -24,7 +26,6 @@ def user(request):
     }
     
     return render(request, 'user.html', context,)
-
 
 def createmember(request):
     Nim = request.POST["Nim"]
@@ -59,15 +60,6 @@ def add_dosen(request):
 
 	return render(request, 'user.html', {'form':form, 'submitted':submitted})
 
-def dosen(request):
-    members = Member.objects.all()
-    context = {
-        'Members': members,
-        'form': Memberform()
-    }
-    
-    return render(request, 'dosen.html', context,)
-
 
 def createdosen(request):
     No = request.POST["No"]
@@ -96,19 +88,30 @@ def add_member(request):
 		form = Memberform
 		if 'submitted' in request.GET:
 			submitted = True
+   
+	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
 
-	return render(request, 'user.html', {'form':form, 'submitted':submitted})
+#dosen
+def dosenview(request):
+    Dosen = dosen.objects.all()
+    context = {
+        'dosen': Dosen,
+        'form': dosenform()
+    }
+    return render(request, 'dosen.html', context,)
 
+#sudah absen
 def sudahabsen(request):
     return render(request, 'sudahabsen.html')
 
-
+#belum absen
 def tidakabsen(request):
     return render(request, 'tidakabsen.html')
 
-
+#absen
 def screen(request):
     return render(request, 'attendancescreen.html')
 
+#jadwal
 def jadwal(request):
     return render(request, 'jadwal.html')

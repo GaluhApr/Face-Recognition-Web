@@ -1,5 +1,6 @@
 from django import forms
 from .models import Member
+from .models import dosen
 import os
 
 golongan = (
@@ -51,4 +52,19 @@ class Memberform(forms.ModelForm):
             'Telepon': forms.TextInput(attrs={'class': 'form-control'}),
             'Alamat': forms.TextInput(attrs={'class': 'form-control'}),
             'Jenis_Kelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
+        }
+        
+class dosenform(forms.ModelForm):
+    class Meta:
+        model = dosen
+        fields = "__all__"
+
+        labels = {
+            'nip': 'nip',
+            'namaDosen': 'namaDosen',
+        }
+
+        widgets = {
+            'nip': forms.TextInput(attrs={'class': 'form-control'}),
+            'namaDosen': forms.TextInput(attrs={'class': 'form-control'}),
         }
