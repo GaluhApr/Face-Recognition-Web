@@ -27,13 +27,13 @@ urlpatterns = [
     path('dashboard/', adminsview.index),
     path('attendance/', adminsview.attendance),
     path('user/', adminsview.user),
-    path('dosen/', adminsview.dosen),
+    path('dosen/', adminsview.dosenview),
     path('sudahabsen/', adminsview.sudahabsen),
     path('tidakabsen/', adminsview.tidakabsen),
     path('screen/', adminsview.screen),
     path('jadwal/', adminsview.jadwal),
     path('createmember/', adminsview.createmember, name='createmember'),
-    
+    path('createdosen/', adminsview.createdosen, name='createdosen'),
     
 ]
 
