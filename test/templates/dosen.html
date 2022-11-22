@@ -109,7 +109,6 @@
                             <i class="fas fa-table me-1"></i>
                             Data Dosen
                         </div>
-
                         <div class="card-body">
                             <p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -139,7 +138,6 @@
                                                     <label>Nama</label>
                                                     <input type="text" id="Nama" class="form-control" name=namaDosen />
                                                 </div>
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
@@ -161,15 +159,12 @@
                                 <tbody>
                                     {% for dosen in dosen %}
                                     <tr>
-                                        <!-- <td>{{ Member.Nim }}</td>
-                                        {% if Member.Foto %}
-                                        <td><img src="{{ Member.Foto.url }}" width="100px" height="100px" />{{Member.Foto}}</td>
-                                        {% else %}
-                                        <td><img src="upload/Members.png" width="100px" height="100px" /></td>
-                                        {% endif %} -->
                                         <td>{{ dosen.nip }}</td>
                                         <td>{{ dosen.namaDosen }}</td>
-                                        
+                                        <td><div class="sb-nav-link-icon"><a class="nav-link" href="/dashboard">
+                                            <i class="fa fa-trash" aria-hidden="true" color="red"></i></a>
+                                                <a class="nav-link" href="/dashboard"><i class="fa fa-pencil" aria-hidden="true" color="blue"></i></a></div>
+                                        </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
