@@ -19,5 +19,5 @@ urlpatterns = [
     path('jadwal/', views.jadwal),
     path('createmember/', views.createmember, name='createmember'),
     path('createdosen/', views.createdosen, name='createdosen'),
-
+    path('matkul/', views.matkul),
 ]
