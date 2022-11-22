@@ -20,6 +20,7 @@ from admins import views as adminsview
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
@@ -33,7 +34,7 @@ urlpatterns = [
     path('screen/', adminsview.screen),
     path('jadwal/', adminsview.jadwal),
     path('createmember/', adminsview.createmember, name='createmember'),
-    path('createdosen/', adminsview.createdosen, name='createdosen'),
+    # path('createdosen/', adminsview.createdosen, name='createdosen'),
     
 ]
 

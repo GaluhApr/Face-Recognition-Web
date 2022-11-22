@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>
+        {% block title %}
+        {% endblock title %}
+
+    </title>
+    {% include "snippets/style.html" %}
+    
+</head>
+
+<body class="sb-nav-fixed">
+
+    <!-- navbar -->
+    {% include "snippets/navbar.html" %}
+    {% include "snippets/sidebar.html" %}
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    {% block header %}
+
+                    {% endblock header %}
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            {% block cardheader %}
+                            {% endblock cardheader %}
+                        </div>
+                        <div class="card-body">
+                            {% block cardtable %}
+                            {% endblock cardtable %}
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Newbie Team</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    {% include "snippets/script.html" %}
+</body>
+
+</html>

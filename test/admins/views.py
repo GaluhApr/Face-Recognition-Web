@@ -42,6 +42,38 @@ def createmember(request):
     admins_member.save()
     return render(request, 'success.html')
 
+
+def add_dosen(request):
+	submitted = False
+	if request.method == "POST":
+		form = Memberform(request.POST, request.FILES)
+		if form.is_valid():
+			Member = form.save(commit=False)
+			# logged in user
+			Member.save()
+			#form.save()
+			return 	HttpResponseRedirect('/add_member?submitted=True')	
+	else:
+		form = Memberform
+		if 'submitted' in request.GET:
+			submitted = True
+
+	return render(request, 'user.html', {'form':form, 'submitted':submitted})
+
+
+def createdosen(request):
+    No = request.POST["No"]
+    Nip = request.POST["Nip"]
+    Nama = request.POST["Nama"]
+
+    admins_member = Member(No=No, Nip=Nip, Nama=Nama)
+    admins_member.save()
+    return render(request, 'success.html')
+
+def delete_member(request,delete_id):
+    Member.objects.filter(id=delete_id).delete()
+    return redirect('user.html')
+
 def add_member(request):
 	submitted = False
 	if request.method == "POST":
@@ -67,31 +99,6 @@ def dosenview(request):
         'form': dosenform()
     }
     return render(request, 'dosen.html', context,)
-
-def createdosen(request):
-    nip = request.POST["nip"]
-    namaDosen = request.POST["namaDosen"]
-
-    admins_dosen = dosen(nip=nip, namaDosen=namaDosen)
-    admins_dosen.save()
-    return render(request, 'successdosen.html')
-
-def add_dosen(request):
-	submitted = False
-	if request.method == "POST":
-		form = dosenform(request.POST, request.FILES)
-		if form.is_valid():
-			dosen = form.save(commit=False)
-			# logged in user
-			dosen.save()
-			#form.save()
-			return 	HttpResponseRedirect('/add_dosen?submitted=True')	
-	else:
-		form = dosenform
-		if 'submitted' in request.GET:
-			submitted = True
-
-	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
 
 #sudah absen
 def sudahabsen(request):
