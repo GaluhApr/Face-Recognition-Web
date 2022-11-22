@@ -1,968 +1,988 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Startup preview - Main page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="custom" content="MTg0NjYx" id="snextras">
-    <link rel="icon" href="{% static 'assets/django-logo-negative.ico' %}">
-    
-    <link rel="stylesheet" href="{% static 'assets/css/aos.css' %}">
-    <link href="{% static 'assets/css/styles.min.css' %}" rel="stylesheet" id="sf-custom-css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{% static 'assets/sweetalert.min.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/datatable/datatables.min.css' %}"/>
-    <meta name="twitter:card" content="summary_large_image">
-  </head>
-  <body data-aos-easing="ease-out-cubic" data-aos-duration="500" data-aos-delay="0">
-    <!-- Navigation 1 -->
-    <nav class="sticky-top py-4 py-lg-7 bg-bg-1">
-      <div class="d-none d-lg-block">
-        <div class="container">
-          <div class="row align-items-center justify-content-between">
-            <div class="col-1">
-              <a href="#">
-                <img src="{% static 'assets/django-logo-negative.svg' %}" srcset="pub/184661/9ca4e4809a98e4451577d06f2ef44d64/uploads/django-logo-negative.svg 2x" alt="" class="img-fluid aos-init aos-animate" data-aos="fade-down" data-aos-delay="0">
-              </a>
-            </div>
-            <div class="text-center d-flex justify-content-center col-6">
-              <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down" data-aos-delay="150"> Home </a>
-              <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down" data-aos-delay="250"> Absensi </a>
-              <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down" data-aos-delay="400"> Profile </a>
-              <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down" data-aos-delay="500"> About App </a>
-            </div>
-            <div class="d-flex align-items-center justify-content-end col-lg-3">
-              <a href="#" class="btn btn-sm btn-action-1 rounded-2 aos-init aos-animate" data-aos="fade-down" data-aos-delay="750"> Log Out </a>
-              <img src="{% static 'assets/blog-17.jpg' %}" srcset="i/blog-17@2x.jpg 2x" alt="" class="img-fluid rounded-circle ms-xxl-4">
-            </div>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Startup preview - Main page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="custom" content="MTg0NjYx" id="snextras">
+  <link rel="icon" href="{% static 'assets/django-logo-negative.ico' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/aos.css' %}">
+  <link href="{% static 'assets/css/styles.min.css' %}" rel="stylesheet" id="sf-custom-css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="{% static 'assets/sweetalert.min.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/datatable/datatables.min.css' %}" />
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body data-aos-easing="ease-out-cubic" data-aos-duration="500" data-aos-delay="0">
+  <!-- Navigation 1 -->
+  <nav class="sticky-top py-4 py-lg-7 bg-bg-1">
+    <div class="d-none d-lg-block">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-1">
+            <a href="#">
+              <img src="{% static 'assets/django-logo-negative.svg' %}"
+                srcset="pub/184661/9ca4e4809a98e4451577d06f2ef44d64/uploads/django-logo-negative.svg 2x" alt=""
+                class="img-fluid aos-init aos-animate" data-aos="fade-down" data-aos-delay="0">
+            </a>
+          </div>
+          <div class="text-center d-flex justify-content-center col-6">
+            <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down"
+              data-aos-delay="150"> Home </a>
+            <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down"
+              data-aos-delay="250"> Absensi </a>
+            <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down"
+              data-aos-delay="400"> Profile </a>
+            <a href="#" class="fw-bold mx-4 text-light-1 aos-init aos-animate" data-aos="fade-down"
+              data-aos-delay="500"> About App </a>
+          </div>
+          <div class="d-flex align-items-center justify-content-end col-lg-3">
+            <a href="#" class="btn btn-sm btn-action-1 rounded-2 aos-init aos-animate" data-aos="fade-down"
+              data-aos-delay="750"> Log Out </a>
+            <img src="{% static 'assets/blog-17.jpg' %}" srcset="i/blog-17@2x.jpg 2x" alt=""
+              class="img-fluid rounded-circle ms-xxl-4">
           </div>
         </div>
       </div>
-    </nav>
-    <!-- Call to action 3 -->
-    <section class="py-10 py-lg-20 bg-bg-3 text-center text-lg-start">
-      <div class="container">
-        <div class="row align-items-center justify-content-center justify-content-lg-start">
-          <div class="col-8 col-md-6">
-            <video id="video" width="100%" height="100%" autoplay></video>
-            <button id="absen" class="btn btn-sm btn-action-1 rounded-2 w-100" onclick="absen()">Click For Attendance</button>
-          </div>
-          <div class="ps-lg-12 ps-xl-3 col-sm-10 col-md-8 col-lg-6 col-xl-6">
-            <div class="col-md-12">
-              <p></p>
+    </div>
+  </nav>
+  <!-- Call to action 3 -->
+  <section class="py-10 py-lg-20 bg-bg-3 text-center text-lg-start">
+    <div class="container">
+      <div class="row align-items-center justify-content-center justify-content-lg-start">
+        <div class="col-8 col-md-6">
+          <video id="video" width="100%" height="100%" autoplay></video>
+          <button id="absen" class="btn btn-sm btn-action-1 rounded-2 w-100" onclick="absen()">Click For
+            Attendance</button>
+        </div>
+        <div class="ps-lg-12 ps-xl-3 col-sm-10 col-md-8 col-lg-6 col-xl-6">
+          <div class="col-md-12">
+            <p></p>
+            <div class="h-100 p-5 bg-light border rounded-1">
+              <h2>Data Absensi</h2>
+              <p>Wajah Terdeteksi : Tanggal 28/10/2022 Waktu 07:55:51 AM</p>
               <div class="h-100 p-5 bg-light border rounded-1">
-                <h2>Data Absensi</h2>
-                <p>Wajah Terdeteksi : Tanggal 28/10/2022 Waktu 07:55:51 AM</p>
-                <div class="h-100 p-5 bg-light border rounded-1">
-                  <canvas id="canvas" width="550" height="420"></canvas>
-                </div>
-                <p>Terdeteksi Merupakan User : Mr.X</p>
-                <p>Selamat Kamu Telah berhasil melakukan Absensi Pada : Jum'at 28/10/2022 Waktu 07:55:51 AM</p>
+                <canvas id="canvas" width="550" height="420"></canvas>
               </div>
+              <p>Terdeteksi Merupakan User : Mr.X</p>
+              <p>Selamat Kamu Telah berhasil melakukan Absensi Pada : Jum'at 28/10/2022 Waktu 07:55:51 AM</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Contact 5 -->
-    <section class="py-10 py-lg-20 bg-bg-3">
-      <div class="container">
-        <!-- <div class="row justify-content-between align-items-center flex-md-row-reverse"> -->
-          <!-- <div class="col-lg-12 col-md-6 mb-12 mb-md-0"> -->
-            <table id="table_id" class="table table-striped" style="width:100%">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NIP</th>
-                  <th>Nama</th>
-                  <th>Hari dan Tanggal</th>
-                  <th>Waktu Absen</th>
-                  <th>Status Absen</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td align="right">1</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>24/10/2022</td>
-                  <td>7:27</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">2</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>7:32</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">3</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>09/11/2022</td>
-                  <td>6:36</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">4</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/10/2022</td>
-                  <td>7:19</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">5</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/11/2022</td>
-                  <td>6:37</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">6</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>08/10/2022</td>
-                  <td>7:08</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">7</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>08/11/2022</td>
-                  <td>7:27</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">8</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>28/10/2022</td>
-                  <td>7:40</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">9</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>11/10/2022</td>
-                  <td>6:53</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">10</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>02/11/2022</td>
-                  <td>7:59</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">11</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/11/2022</td>
-                  <td>7:38</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">12</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>30/10/2022</td>
-                  <td>6:40</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">13</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/10/2022</td>
-                  <td>7:26</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">14</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>08/10/2022</td>
-                  <td>6:40</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">15</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>01/10/2022</td>
-                  <td>6:44</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">16</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/10/2022</td>
-                  <td>7:01</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">17</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/10/2022</td>
-                  <td>6:45</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">18</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>09/10/2022</td>
-                  <td>6:31</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">19</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>23/10/2022</td>
-                  <td>6:56</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">20</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>01/10/2022</td>
-                  <td>7:02</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">21</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>6:33</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">22</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>19/10/2022</td>
-                  <td>6:54</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">23</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>30/10/2022</td>
-                  <td>6:31</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">24</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>21/10/2022</td>
-                  <td>6:49</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">25</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>07/11/2022</td>
-                  <td>7:28</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">26</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>08/10/2022</td>
-                  <td>7:34</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">27</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/11/2022</td>
-                  <td>7:04</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">28</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>29/10/2022</td>
-                  <td>6:59</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">29</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>17/10/2022</td>
-                  <td>6:44</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">30</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>12/10/2022</td>
-                  <td>7:02</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">31</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>27/10/2022</td>
-                  <td>6:33</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">32</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>31/10/2022</td>
-                  <td>6:45</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">33</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>01/10/2022</td>
-                  <td>6:39</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">34</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>29/10/2022</td>
-                  <td>7:58</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">35</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>03/10/2022</td>
-                  <td>7:20</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">36</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/10/2022</td>
-                  <td>6:36</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">37</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/11/2022</td>
-                  <td>6:47</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">38</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/11/2022</td>
-                  <td>7:37</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">39</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>07/11/2022</td>
-                  <td>7:03</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">40</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>11/11/2022</td>
-                  <td>6:30</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">41</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/10/2022</td>
-                  <td>7:19</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">42</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>03/11/2022</td>
-                  <td>7:03</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">43</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>20/10/2022</td>
-                  <td>7:25</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">44</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>16/10/2022</td>
-                  <td>7:12</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">45</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>6:41</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">46</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>27/10/2022</td>
-                  <td>7:38</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">47</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>29/10/2022</td>
-                  <td>7:34</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">48</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/10/2022</td>
-                  <td>6:39</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">49</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>31/10/2022</td>
-                  <td>6:31</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">50</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>20/10/2022</td>
-                  <td>6:32</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">51</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>07/11/2022</td>
-                  <td>7:58</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">52</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>7:33</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">53</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>02/10/2022</td>
-                  <td>7:36</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">54</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>28/10/2022</td>
-                  <td>7:35</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">55</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>7:46</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">56</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/11/2022</td>
-                  <td>7:47</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">57</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>03/10/2022</td>
-                  <td>7:08</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">58</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/11/2022</td>
-                  <td>6:59</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">59</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>11/10/2022</td>
-                  <td>7:12</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">60</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>07/10/2022</td>
-                  <td>6:58</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">61</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>31/10/2022</td>
-                  <td>7:48</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">62</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>14/10/2022</td>
-                  <td>7:12</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">63</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>12/10/2022</td>
-                  <td>7:33</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">64</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>20/10/2022</td>
-                  <td>6:58</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">65</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/10/2022</td>
-                  <td>6:34</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">66</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>15/10/2022</td>
-                  <td>7:56</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">67</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/10/2022</td>
-                  <td>7:48</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">68</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>03/10/2022</td>
-                  <td>7:41</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">69</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>02/10/2022</td>
-                  <td>7:23</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">70</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>24/10/2022</td>
-                  <td>7:27</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">71</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>21/10/2022</td>
-                  <td>6:41</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">72</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>05/10/2022</td>
-                  <td>7:57</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">73</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>17/10/2022</td>
-                  <td>7:31</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">74</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>28/10/2022</td>
-                  <td>7:08</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">75</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>16/10/2022</td>
-                  <td>7:25</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">76</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>02/10/2022</td>
-                  <td>6:57</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">77</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>12/10/2022</td>
-                  <td>7:50</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">78</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>21/10/2022</td>
-                  <td>6:56</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">79</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>09/11/2022</td>
-                  <td>7:26</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">80</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>18/10/2022</td>
-                  <td>7:41</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">81</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>10/11/2022</td>
-                  <td>7:32</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">82</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>02/11/2022</td>
-                  <td>6:31</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">83</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>07/11/2022</td>
-                  <td>7:06</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">84</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>11/11/2022</td>
-                  <td>7:04</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">85</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>11/10/2022</td>
-                  <td>7:07</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">86</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>19/10/2022</td>
-                  <td>6:38</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">87</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>31/10/2022</td>
-                  <td>7:51</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">88</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/11/2022</td>
-                  <td>7:37</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">89</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>04/10/2022</td>
-                  <td>7:04</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">90</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>30/10/2022</td>
-                  <td>7:02</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">91</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>03/10/2022</td>
-                  <td>7:41</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">92</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>19/10/2022</td>
-                  <td>7:00</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">93</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>20/10/2022</td>
-                  <td>7:19</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">94</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>20/10/2022</td>
-                  <td>6:34</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">95</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/10/2022</td>
-                  <td>6:34</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">96</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>09/11/2022</td>
-                  <td>7:43</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">97</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/11/2022</td>
-                  <td>7:56</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">98</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>21/10/2022</td>
-                  <td>7:13</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">99</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>22/10/2022</td>
-                  <td>6:33</td>
-                  <td>&#39;Tepat Waktu&#39;</td>
-                </tr>
-                <tr>
-                  <td align="right">100</td>
-                  <td align="right">9378049249</td>
-                  <td>Naruto Uzumaki</td>
-                  <td>06/10/2022</td>
-                  <td>7:59</td>
-                  <td>&#39;Terlambat&#39;</td>
-                </tr>
-                </tfoot>
-            </table>
-      
-          <!-- </div> -->
-        <!-- </div> -->
-      </div>
-    </section>
-    <!-- Footer 4 -->
-    <footer class="pb-md-8 pt-md-10 py-8 text-center bg-bg-1">
-      <div class="container">
-        <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="0">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
-            <path d="M22.4591 6C21.6891 6.35 20.8591 6.58 19.9991 6.69C20.8791 6.16 21.5591 5.32 21.8791 4.31C21.0491 4.81 20.1291 5.16 19.1591 5.36C18.3691 4.5 17.2591 4 15.9991 4C13.6491 4 11.7291 5.92 11.7291 8.29C11.7291 8.63 11.7691 8.96 11.8391 9.27C8.27906 9.09 5.10906 7.38 2.99906 4.79C2.62906 5.42 2.41906 6.16 2.41906 6.94C2.41906 8.43 3.16906 9.75 4.32906 10.5C3.61906 10.5 2.95906 10.3 2.37906 10V10.03C2.37906 12.11 3.85906 13.85 5.81906 14.24C5.18979 14.4122 4.52916 14.4362 3.88906 14.31C4.16067 15.1625 4.6926 15.9084 5.41008 16.4429C6.12756 16.9775 6.99451 17.2737 7.88906 17.29C6.37269 18.4904 4.49306 19.1393 2.55906 19.13C2.21906 19.13 1.87906 19.11 1.53906 19.07C3.43906 20.29 5.69906 21 8.11906 21C15.9991 21 20.3291 14.46 20.3291 8.79C20.3291 8.6 20.3291 8.42 20.3191 8.23C21.1591 7.63 21.8791 6.87 22.4591 6Z"></path>
-          </svg>
-        </a>
-        <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="150">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
-            <path d="M12 2.03906C6.5 2.03906 2 6.52906 2 12.0591C2 17.0591 5.66 21.2091 10.44 21.9591V14.9591H7.9V12.0591H10.44V9.84906C10.44 7.33906 11.93 5.95906 14.22 5.95906C15.31 5.95906 16.45 6.14906 16.45 6.14906V8.61906H15.19C13.95 8.61906 13.56 9.38906 13.56 10.1791V12.0591H16.34L15.89 14.9591H13.56V21.9591C15.9164 21.5869 18.0622 20.3846 19.6099 18.5691C21.1576 16.7537 22.0054 14.4447 22 12.0591C22 6.52906 17.5 2.03906 12 2.03906Z"></path>
-          </svg>
-        </a>
-        <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="250">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
-            <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 17.7383 21.3889 19.2135 20.3012 20.3012C19.2135 21.3889 17.7383 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 6.26174 2.61107 4.78649 3.69878 3.69878C4.78649 2.61107 6.26174 2 7.8 2ZM7.6 4C6.64522 4 5.72955 4.37928 5.05442 5.05442C4.37928 5.72955 4 6.64522 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4C17.3548 20 18.2705 19.6207 18.9456 18.9456C19.6207 18.2705 20 17.3548 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5C17.5815 5.5 17.8995 5.6317 18.1339 5.86612C18.3683 6.10054 18.5 6.41848 18.5 6.75C18.5 7.08152 18.3683 7.39946 18.1339 7.63388C17.8995 7.8683 17.5815 8 17.25 8C16.9185 8 16.6005 7.8683 16.3661 7.63388C16.1317 7.39946 16 7.08152 16 6.75C16 6.41848 16.1317 6.10054 16.3661 5.86612C16.6005 5.6317 16.9185 5.5 17.25 5.5ZM12 7C13.3261 7 14.5979 7.52678 15.5355 8.46447C16.4732 9.40215 17 10.6739 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17C10.6739 17 9.40215 16.4732 8.46447 15.5355C7.52678 14.5979 7 13.3261 7 12C7 10.6739 7.52678 9.40215 8.46447 8.46447C9.40215 7.52678 10.6739 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z"></path>
-          </svg>
-        </a>
-        <div class="mt-10 mb-8 border-bottom border-light-3 aos-init" data-aos="fade-down" data-aos-delay="400"></div>
-        <p class="fs-5 mb-0 text-light-2 aos-init" data-aos="fade-down" data-aos-delay="500"> Copyright © 2022 DjangoApp Attendance </p>
-      </div>
-    </footer>
-    <script type="text/javascript" src="{% static 'assets/datatable/datatables.min.js' %}"></script>
-    <!-- Bootstrap 5.1.2 JS -->
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}" data-integrity="38d870e9c3c4e532551b530706abb811"></script>
-    <!-- AOS 3.0.0-beta.6 plugin JS (Animations) -->
-    <script src="{% static 'assets/js/aos.js' %}"></script>
-    <!-- Startup Plugins 5.4.672 -->
-    <script src="{% static 'assets/js/plugins.min.js' %}"></script>
-    <!-- Startup JS (Custom js for all blocks) - Remove ".min" if you want to edit a JS code 5.04.672 -->
-    <script src="{% static 'assets/js/scripts.min.js' %}"></script>
+    </div>
+  </section>
+  <!-- Contact 5 -->
+  <section class="py-10 py-lg-20 bg-bg-3">
+    <div class="container">
+      <!-- <div class="row justify-content-between align-items-center flex-md-row-reverse"> -->
+      <!-- <div class="col-lg-12 col-md-6 mb-12 mb-md-0"> -->
+      <table id="table_id" class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Hari dan Tanggal</th>
+            <th>Waktu Absen</th>
+            <th>Status Absen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="right">1</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>24/10/2022</td>
+            <td>7:27</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">2</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>7:32</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">3</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>09/11/2022</td>
+            <td>6:36</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">4</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/10/2022</td>
+            <td>7:19</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">5</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/11/2022</td>
+            <td>6:37</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">6</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>08/10/2022</td>
+            <td>7:08</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">7</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>08/11/2022</td>
+            <td>7:27</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">8</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>28/10/2022</td>
+            <td>7:40</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">9</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>11/10/2022</td>
+            <td>6:53</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">10</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>02/11/2022</td>
+            <td>7:59</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">11</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/11/2022</td>
+            <td>7:38</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">12</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>30/10/2022</td>
+            <td>6:40</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">13</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/10/2022</td>
+            <td>7:26</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">14</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>08/10/2022</td>
+            <td>6:40</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">15</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>01/10/2022</td>
+            <td>6:44</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">16</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/10/2022</td>
+            <td>7:01</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">17</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/10/2022</td>
+            <td>6:45</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">18</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>09/10/2022</td>
+            <td>6:31</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">19</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>23/10/2022</td>
+            <td>6:56</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">20</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>01/10/2022</td>
+            <td>7:02</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">21</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>6:33</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">22</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>19/10/2022</td>
+            <td>6:54</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">23</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>30/10/2022</td>
+            <td>6:31</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">24</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>21/10/2022</td>
+            <td>6:49</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">25</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>07/11/2022</td>
+            <td>7:28</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">26</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>08/10/2022</td>
+            <td>7:34</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">27</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/11/2022</td>
+            <td>7:04</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">28</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>29/10/2022</td>
+            <td>6:59</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">29</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>17/10/2022</td>
+            <td>6:44</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">30</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>12/10/2022</td>
+            <td>7:02</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">31</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>27/10/2022</td>
+            <td>6:33</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">32</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>31/10/2022</td>
+            <td>6:45</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">33</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>01/10/2022</td>
+            <td>6:39</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">34</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>29/10/2022</td>
+            <td>7:58</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">35</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>03/10/2022</td>
+            <td>7:20</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">36</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/10/2022</td>
+            <td>6:36</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">37</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/11/2022</td>
+            <td>6:47</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">38</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/11/2022</td>
+            <td>7:37</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">39</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>07/11/2022</td>
+            <td>7:03</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">40</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>11/11/2022</td>
+            <td>6:30</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">41</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/10/2022</td>
+            <td>7:19</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">42</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>03/11/2022</td>
+            <td>7:03</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">43</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>20/10/2022</td>
+            <td>7:25</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">44</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>16/10/2022</td>
+            <td>7:12</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">45</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>6:41</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">46</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>27/10/2022</td>
+            <td>7:38</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">47</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>29/10/2022</td>
+            <td>7:34</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">48</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/10/2022</td>
+            <td>6:39</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">49</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>31/10/2022</td>
+            <td>6:31</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">50</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>20/10/2022</td>
+            <td>6:32</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">51</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>07/11/2022</td>
+            <td>7:58</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">52</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>7:33</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">53</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>02/10/2022</td>
+            <td>7:36</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">54</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>28/10/2022</td>
+            <td>7:35</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">55</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>7:46</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">56</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/11/2022</td>
+            <td>7:47</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">57</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>03/10/2022</td>
+            <td>7:08</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">58</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/11/2022</td>
+            <td>6:59</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">59</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>11/10/2022</td>
+            <td>7:12</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">60</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>07/10/2022</td>
+            <td>6:58</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">61</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>31/10/2022</td>
+            <td>7:48</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">62</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>14/10/2022</td>
+            <td>7:12</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">63</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>12/10/2022</td>
+            <td>7:33</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">64</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>20/10/2022</td>
+            <td>6:58</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">65</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/10/2022</td>
+            <td>6:34</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">66</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>15/10/2022</td>
+            <td>7:56</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">67</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/10/2022</td>
+            <td>7:48</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">68</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>03/10/2022</td>
+            <td>7:41</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">69</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>02/10/2022</td>
+            <td>7:23</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">70</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>24/10/2022</td>
+            <td>7:27</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">71</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>21/10/2022</td>
+            <td>6:41</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">72</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>05/10/2022</td>
+            <td>7:57</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">73</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>17/10/2022</td>
+            <td>7:31</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">74</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>28/10/2022</td>
+            <td>7:08</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">75</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>16/10/2022</td>
+            <td>7:25</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">76</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>02/10/2022</td>
+            <td>6:57</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">77</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>12/10/2022</td>
+            <td>7:50</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">78</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>21/10/2022</td>
+            <td>6:56</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">79</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>09/11/2022</td>
+            <td>7:26</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">80</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>18/10/2022</td>
+            <td>7:41</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">81</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>10/11/2022</td>
+            <td>7:32</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">82</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>02/11/2022</td>
+            <td>6:31</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">83</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>07/11/2022</td>
+            <td>7:06</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">84</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>11/11/2022</td>
+            <td>7:04</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">85</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>11/10/2022</td>
+            <td>7:07</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">86</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>19/10/2022</td>
+            <td>6:38</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">87</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>31/10/2022</td>
+            <td>7:51</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">88</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/11/2022</td>
+            <td>7:37</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">89</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>04/10/2022</td>
+            <td>7:04</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">90</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>30/10/2022</td>
+            <td>7:02</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">91</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>03/10/2022</td>
+            <td>7:41</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">92</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>19/10/2022</td>
+            <td>7:00</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">93</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>20/10/2022</td>
+            <td>7:19</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">94</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>20/10/2022</td>
+            <td>6:34</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">95</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/10/2022</td>
+            <td>6:34</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">96</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>09/11/2022</td>
+            <td>7:43</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">97</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/11/2022</td>
+            <td>7:56</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">98</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>21/10/2022</td>
+            <td>7:13</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">99</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>22/10/2022</td>
+            <td>6:33</td>
+            <td>&#39;Tepat Waktu&#39;</td>
+          </tr>
+          <tr>
+            <td align="right">100</td>
+            <td align="right">9378049249</td>
+            <td>Naruto Uzumaki</td>
+            <td>06/10/2022</td>
+            <td>7:59</td>
+            <td>&#39;Terlambat&#39;</td>
+          </tr>
+          </tfoot>
+      </table>
 
-<!-- Script Untuk WebCam -->
-    <script>
-      // Untuk memberitahu Element HTML yang bakal diletak camera nya dimana
-      var video = document.getElementById('video');
-      // Untuk Meminta Akses Kamera!
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Karna cuman mau ambil audio sintaks ini tidak di tambakah `{ audio: true }`
-        navigator.mediaDevices.getUserMedia({
-          video: true
-        }).then(function(stream) {
-          //video.src = window.URL.createObjectURL(stream);
-          video.srcObject = stream;
-          video.play();
-        });
-      }
+      <!-- </div> -->
+      <!-- </div> -->
+    </div>
+  </section>
+  <!-- Footer 4 -->
+  <footer class="pb-md-8 pt-md-10 py-8 text-center bg-bg-1">
+    <div class="container">
+      <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
+          <path
+            d="M22.4591 6C21.6891 6.35 20.8591 6.58 19.9991 6.69C20.8791 6.16 21.5591 5.32 21.8791 4.31C21.0491 4.81 20.1291 5.16 19.1591 5.36C18.3691 4.5 17.2591 4 15.9991 4C13.6491 4 11.7291 5.92 11.7291 8.29C11.7291 8.63 11.7691 8.96 11.8391 9.27C8.27906 9.09 5.10906 7.38 2.99906 4.79C2.62906 5.42 2.41906 6.16 2.41906 6.94C2.41906 8.43 3.16906 9.75 4.32906 10.5C3.61906 10.5 2.95906 10.3 2.37906 10V10.03C2.37906 12.11 3.85906 13.85 5.81906 14.24C5.18979 14.4122 4.52916 14.4362 3.88906 14.31C4.16067 15.1625 4.6926 15.9084 5.41008 16.4429C6.12756 16.9775 6.99451 17.2737 7.88906 17.29C6.37269 18.4904 4.49306 19.1393 2.55906 19.13C2.21906 19.13 1.87906 19.11 1.53906 19.07C3.43906 20.29 5.69906 21 8.11906 21C15.9991 21 20.3291 14.46 20.3291 8.79C20.3291 8.6 20.3291 8.42 20.3191 8.23C21.1591 7.63 21.8791 6.87 22.4591 6Z">
+          </path>
+        </svg>
+      </a>
+      <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="150">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
+          <path
+            d="M12 2.03906C6.5 2.03906 2 6.52906 2 12.0591C2 17.0591 5.66 21.2091 10.44 21.9591V14.9591H7.9V12.0591H10.44V9.84906C10.44 7.33906 11.93 5.95906 14.22 5.95906C15.31 5.95906 16.45 6.14906 16.45 6.14906V8.61906H15.19C13.95 8.61906 13.56 9.38906 13.56 10.1791V12.0591H16.34L15.89 14.9591H13.56V21.9591C15.9164 21.5869 18.0622 20.3846 19.6099 18.5691C21.1576 16.7537 22.0054 14.4447 22 12.0591C22 6.52906 17.5 2.03906 12 2.03906Z">
+          </path>
+        </svg>
+      </a>
+      <a href="#" target="_blank" class="mx-3 aos-init" data-aos="fade-down" data-aos-delay="250">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="fill-light-1">
+          <path
+            d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 17.7383 21.3889 19.2135 20.3012 20.3012C19.2135 21.3889 17.7383 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 6.26174 2.61107 4.78649 3.69878 3.69878C4.78649 2.61107 6.26174 2 7.8 2ZM7.6 4C6.64522 4 5.72955 4.37928 5.05442 5.05442C4.37928 5.72955 4 6.64522 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4C17.3548 20 18.2705 19.6207 18.9456 18.9456C19.6207 18.2705 20 17.3548 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5C17.5815 5.5 17.8995 5.6317 18.1339 5.86612C18.3683 6.10054 18.5 6.41848 18.5 6.75C18.5 7.08152 18.3683 7.39946 18.1339 7.63388C17.8995 7.8683 17.5815 8 17.25 8C16.9185 8 16.6005 7.8683 16.3661 7.63388C16.1317 7.39946 16 7.08152 16 6.75C16 6.41848 16.1317 6.10054 16.3661 5.86612C16.6005 5.6317 16.9185 5.5 17.25 5.5ZM12 7C13.3261 7 14.5979 7.52678 15.5355 8.46447C16.4732 9.40215 17 10.6739 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17C10.6739 17 9.40215 16.4732 8.46447 15.5355C7.52678 14.5979 7 13.3261 7 12C7 10.6739 7.52678 9.40215 8.46447 8.46447C9.40215 7.52678 10.6739 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z">
+          </path>
+        </svg>
+      </a>
+      <div class="mt-10 mb-8 border-bottom border-light-3 aos-init" data-aos="fade-down" data-aos-delay="400"></div>
+      <p class="fs-5 mb-0 text-light-2 aos-init" data-aos="fade-down" data-aos-delay="500"> Copyright © 2022 DjangoApp
+        Attendance </p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="{% static 'assets/datatable/datatables.min.js' %}"></script>
+  <!-- Bootstrap 5.1.2 JS -->
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}" data-integrity="38d870e9c3c4e532551b530706abb811">
+  </script>
+  <!-- AOS 3.0.0-beta.6 plugin JS (Animations) -->
+  <script src="{% static 'assets/js/aos.js' %}"></script>
+  <!-- Startup Plugins 5.4.672 -->
+  <script src="{% static 'assets/js/plugins.min.js' %}"></script>
+  <!-- Startup JS (Custom js for all blocks) - Remove ".min" if you want to edit a JS code 5.04.672 -->
+  <script src="{% static 'assets/js/scripts.min.js' %}"></script>
 
-      // Untuk deklarasi Element yang akan digunakan untuk Menggambil Gambar
-      var canvas = document.getElementById('canvas');
-      var context = canvas.getContext('2d');
-      var video = document.getElementById('video');
-      // Berfungsi untuk mengamnbil Gambar
-      document.getElementById("absen").addEventListener("click", function() {
-        context.drawImage(video, 0, 0, 550, 420);
+  <!-- Script Untuk WebCam -->
+  <script>
+    // Untuk memberitahu Element HTML yang bakal diletak camera nya dimana
+    var video = document.getElementById('video');
+    // Untuk Meminta Akses Kamera!
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Karna cuman mau ambil audio sintaks ini tidak di tambakah `{ audio: true }`
+      navigator.mediaDevices.getUserMedia({
+        video: true
+      }).then(function (stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
       });
-    </script>
+    }
 
-<!-- Script Untuk Alert Box Menggunakan SweetAlert1 -->
-    <script type="text/javascript">
-      function absen() {
-        swal({
-          title: "Berhasil Absen!",
-          text: "Kamu Berhasil Absensi Menggunakan Wajahmu",
-          icon: "success"
-        });
-      }
-    </script>
+    // Untuk deklarasi Element yang akan digunakan untuk Menggambil Gambar
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var video = document.getElementById('video');
+    // Berfungsi untuk mengamnbil Gambar
+    document.getElementById("absen").addEventListener("click", function () {
+      context.drawImage(video, 0, 0, 550, 420);
+    });
+  </script>
 
-<!-- Script Untuk Search Table -->
-<script>
-$(document).ready( function () {
-    $('#table_id').DataTable();
-} );
-</script>
-  </body>
+  <!-- Script Untuk Alert Box Menggunakan SweetAlert1 -->
+  <script type="text/javascript">
+    function absen() {
+      swal({
+        title: "Berhasil Absen!",
+        text: "Kamu Berhasil Absensi Menggunakan Wajahmu",
+        icon: "success"
+      });
+    }
+  </script>
+
+  <!-- Script Untuk Search Table -->
+  <script>
+    $(document).ready(function () {
+      $('#table_id').DataTable();
+    });
+  </script>
+</body>
+
 </html>

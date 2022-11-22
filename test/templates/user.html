@@ -7,35 +7,33 @@ Data User
 
 {% block header %}
 <h1 class="mt-4">User</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Laporan</li>
-                    </ol>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Laporan</li>
+</ol>
 {% endblock header %}
 
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
-                            Data User
+Data User
 {% endblock cardheader %}
 
 {% block cardtable %}
 <p>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-        data-bs-target="#addnewmember" style="width:300px;">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember"
+        style="width:300px;">
         Tambah User
     </button>
 </p>
 <!-- Modal -->
-<div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admins/createmember/" >
+                <form method="POST" action="/admins/createmember/">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <!-- <div class="mb-3">
@@ -99,7 +97,7 @@ Data User
 
                         </select>
                     </div> -->
-                    
+
 
             </div>
             <div class="modal-footer">
@@ -114,7 +112,7 @@ Data User
 <table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
-            <th >Id</th>
+            <th>Id</th>
             <th>Nim</th>
             <th>Foto</th>
             <th>Nama</th>
@@ -142,12 +140,10 @@ Data User
             <td>{{ Member.Telepon }}</td>
             <td>{{ Member.Alamat }}</td>
             <td>{{ Member.Jenis_Kelamin }}</td>
-            <td><button type="submit" class="btn btn-danger"  {% url 'delete-member' Member.id %} >Delete</button></td>
-            
+            <td><button type="submit" class="btn btn-danger" {% url 'delete-member' Member.id %}>Delete</button></td>
+
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% endblock cardtable %}
-
-

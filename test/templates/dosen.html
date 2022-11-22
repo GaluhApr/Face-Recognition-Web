@@ -13,28 +13,26 @@ Data Dosen
 
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
-                            Data Dosen
+Data Dosen
 {% endblock cardheader %}
 
 {% block cardtable %}
 <p>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-        data-bs-target="#addnewmember" style="width:300px;">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember"
+        style="width:300px;">
         Tambah Dosen
     </button>
 </p>
 <!-- Modal -->
-<div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Dosen</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admins/createdosen/" >
+                <form method="POST" action="/admins/createdosen/">
                     {% csrf_token %}
                     {{ form.as_p }}
                     {% comment %} <div class="mb-3">
@@ -44,7 +42,7 @@ Data Dosen
                     <div class="mb-3">
                         <label>Nama</label>
                         <input type="text" id="Nama" class="form-control" name=namaDosen />
-                    </div>  {% endcomment %}
+                    </div> {% endcomment %}
 
             </div>
             <div class="modal-footer">
@@ -75,7 +73,7 @@ Data Dosen
             {% endif %} -->
             <td>{{ dosen.nip }}</td>
             <td>{{ dosen.namaDosen }}</td>
-            <td><button type="submit" class="btn btn-danger" {% url 'delete-dosen' dosen.id %} >Delete</button></td>
+            <td><button type="submit" class="btn btn-danger" {% url 'delete-dosen' dosen.id %}>Delete</button></td>
         </tr>
         {% endfor %}
     </tbody>
