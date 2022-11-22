@@ -60,8 +60,8 @@ class dosenform(forms.ModelForm):
         fields = "__all__"
 
         labels = {
-            'nip': 'nip',
-            'namaDosen': 'namaDosen',
+            'nip': 'Nip',
+            'namaDosen': 'Nama',
         }
 
         widgets = {

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Member
+from .models import Member, dosen
 from .forms import Memberform
 from .models import dosen  # type: ignore
 from .forms import dosenform
@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 
 
 def index(request):
+    
     return render(request, 'dashboard.html')
 
 
@@ -42,6 +43,27 @@ def createmember(request):
     admins_member.save()
     return render(request, 'success.html')
 
+def delete_member(request, id):
+    members = Member.objects.get(id=id)
+    members.delete()
+    return redirect('user.html')
+
+def add_member(request):
+	submitted = False
+	if request.method == "POST":
+		form = Memberform(request.POST, request.FILES)
+		if form.is_valid():
+			Member = form.save(commit=False)
+			# logged in user
+			Member.save()
+			#form.save()
+			return 	HttpResponseRedirect('/add_member?submitted=True')	
+	else:
+		form = Memberform
+		if 'submitted' in request.GET:
+			submitted = True
+	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
+
 
 def add_dosen(request):
 	submitted = False
@@ -62,34 +84,17 @@ def add_dosen(request):
 
 
 def createdosen(request):
-    No = request.POST["No"]
-    Nip = request.POST["Nip"]
-    Nama = request.POST["Nama"]
+    nip = request.POST["nip"]
+    namaDosen = request.POST["namaDosen"]
 
-    admins_member = Member(No=No, Nip=Nip, Nama=Nama)
-    admins_member.save()
-    return render(request, 'success.html')
+    admins_dosen = dosen(nip=nip, namaDosen=namaDosen)
+    admins_dosen.save()
+    return render(request, 'successdosen.html')
 
-def delete_member(request,delete_id):
-    Member.objects.filter(id=delete_id).delete()
-    return redirect('user.html')
-
-def add_member(request):
-	submitted = False
-	if request.method == "POST":
-		form = Memberform(request.POST, request.FILES)
-		if form.is_valid():
-			Member = form.save(commit=False)
-			# logged in user
-			Member.save()
-			#form.save()
-			return 	HttpResponseRedirect('/add_member?submitted=True')	
-	else:
-		form = Memberform
-		if 'submitted' in request.GET:
-			submitted = True
-   
-	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
+def delete_dosen(request, id):
+    dosens = dosen.objects.get(id=id)
+    dosens.delete()
+    return redirect('dosen.html')
 
 #dosen
 def dosenview(request):

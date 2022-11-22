@@ -34,17 +34,17 @@ Data Dosen
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/createdosen/" >
+                <form method="POST" action="/admins/createdosen/" >
                     {% csrf_token %}
-                    <!-- {{ form.as_p }} --> 
-                    <div class="mb-3">
+                    {{ form.as_p }}
+                    {% comment %} <div class="mb-3">
                         <label>Nip</label>
                         <input type="text" id="Nip" class="form-control" name=nip />
                     </div>
                     <div class="mb-3">
                         <label>Nama</label>
                         <input type="text" id="Nama" class="form-control" name=namaDosen />
-                    </div>
+                    </div>  {% endcomment %}
 
             </div>
             <div class="modal-footer">
@@ -56,7 +56,7 @@ Data Dosen
 </div>
 
 <hr style="border-top:1px solid #000; clear:both;" />
-<table id="table" class="table table-bordered">
+<table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
             <th>Nip</th>
@@ -75,7 +75,7 @@ Data Dosen
             {% endif %} -->
             <td>{{ dosen.nip }}</td>
             <td>{{ dosen.namaDosen }}</td>
-            
+            <td><button type="submit" class="btn btn-danger" {% url 'delete-dosen' dosen.id %} >Delete</button></td>
         </tr>
         {% endfor %}
     </tbody>
