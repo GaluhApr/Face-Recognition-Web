@@ -14,6 +14,70 @@ Data Dosen
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
                             Data Dosen
+<<<<<<< HEAD
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#addnewmember" style="width:300px;">
+                                    Tambah Dosen
+                                </button>
+                            </p>
+                            <!-- Modal -->
+                            <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Tambah Dosen</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST" action="/createdosen/" >
+                                                {% csrf_token %}
+                                                <!-- {{ form.as_p }} --> 
+                                                <div class="mb-3">
+                                                    <label>Nip</label>
+                                                    <input type="text" id="Nip" class="form-control" name=nip />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Nama</label>
+                                                    <input type="text" id="Nama" class="form-control" name=namaDosen />
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="border-top:1px solid #000; clear:both;" />
+                            <table id="table" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Nip</th>
+                                        <th>Nama</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for dosen in dosen %}
+                                    <tr>
+                                        <td>{{ dosen.nip }}</td>
+                                        <td>{{ dosen.namaDosen }}</td>
+                                        <td><div class="sb-nav-link-icon"><a class="nav-link" href="/dashboard">
+                                            <i class="fa fa-trash" aria-hidden="true" color="red"></i></a>
+                                                <a class="nav-link" href="/dashboard"><i class="fa fa-pencil" aria-hidden="true" color="blue"></i></a></div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+=======
 {% endblock cardheader %}
 
 {% block cardtable %}
@@ -40,6 +104,7 @@ Data Dosen
                     {% comment %} <div class="mb-3">
                         <label>Nip</label>
                         <input type="text" id="Nip" class="form-control" name=nip />
+>>>>>>> 22d62fcf0a40e7a9a051525af0355c3572e66fcc
                     </div>
                     <div class="mb-3">
                         <label>Nama</label>

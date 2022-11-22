@@ -12,6 +12,83 @@ Data User
                     </ol>
 {% endblock header %}
 
+<<<<<<< HEAD
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Telepon</label>
+                                                    <input type="text" id="Telepon" class="form-control" name=Telepon />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Alamat</label>
+                                                    <input type="text" id="Alamat" class="form-control" name=Alamat />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Jenis Kelamin</label>
+                                                    <select class="form-select" aria-label="Default select example"
+                                                        name="Jenis_Kelamin">
+
+                                                        <option value="Laki-laki">Laki-laki</option>
+                                                        <option value="Perempuan">Perempuan</option>
+
+
+                                                    </select>
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="border-top:1px solid #000; clear:both;" />
+                            <table id="table" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Nim</th>
+                                        <th>Foto</th>
+                                        <th>Nama</th>
+                                        <th>Kelas</th>
+                                        <th>Semester</th>
+                                        <th>Telepon</th>
+                                        <th>Alamat</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for Member in Members %}
+                                    <tr>
+                                        <td>{{ Member.Nim }}</td>
+                                        {% if Member.Foto %}
+                                        <td><img src="{{ Member.Foto.url }}" width="100px" height="100px" />{{Member.Foto}}</td>
+                                        {% else %}
+                                        <td><img src="upload/Members.png" width="100px" height="100px" /></td>
+                                        {% endif %}
+                                        <td>{{ Member.Nama }}</td>
+                                        <td>{{ Member.Kelas }}</td>
+                                        <td>{{ Member.Semester }}</td>
+                                        <td>{{ Member.Telepon }}</td>
+                                        <td>{{ Member.Alamat }}</td>
+                                        <td>{{ Member.Jenis_Kelamin }}</td>
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+=======
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
                             Data User
@@ -41,6 +118,7 @@ Data User
                     <!-- <div class="mb-3">
                         <label>Nim</label>
                         <input type="text" id="Nim" class="form-control" name=Nim />
+>>>>>>> 22d62fcf0a40e7a9a051525af0355c3572e66fcc
                     </div>
                     <div class="mb-3">
                         <label>Foto</label>
