@@ -120,3 +120,6 @@ def screen(request):
 #jadwal
 def jadwal(request):
     return render(request, 'jadwal.html')
+
+def matkul(request):
+    return render(request, 'matakuliah.html')
