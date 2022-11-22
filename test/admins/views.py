@@ -44,9 +44,10 @@ def createmember(request):
     return render(request, 'success.html')
 
 def delete_member(request, id):
-    members = Member.objects.get(id=id)
-    members.delete()
-    return redirect('user.html')
+    delmember = Member.objects.get(id=id)
+    delmember.delete()
+    members = Member.objects.all()
+    return render(request, 'deletemember.html',)
 
 def add_member(request):
 	submitted = False
@@ -92,9 +93,10 @@ def createdosen(request):
     return render(request, 'successdosen.html')
 
 def delete_dosen(request, id):
-    dosens = dosen.objects.get(id=id)
-    dosens.delete()
-    return redirect('dosen.html')
+    deldosen = dosen.objects.get(id=id)
+    deldosen.delete()
+    Dosen = dosen.objects.all()
+    return render(request, 'deletedosen.html')
 
 #dosen
 def dosenview(request):
