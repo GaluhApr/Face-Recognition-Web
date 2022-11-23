@@ -4,7 +4,7 @@ from .forms import Memberform
 from .models import dosen  # type: ignore
 from .forms import dosenform
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -48,41 +48,6 @@ def delete_member(request, id):
     delmember.delete()
     members = Member.objects.all()
     return render(request, 'deletemember.html',)
-
-def add_member(request):
-	submitted = False
-	if request.method == "POST":
-		form = Memberform(request.POST, request.FILES)
-		if form.is_valid():
-			Member = form.save(commit=False)
-			# logged in user
-			Member.save()
-			#form.save()
-			return 	HttpResponseRedirect('/add_member?submitted=True')	
-	else:
-		form = Memberform
-		if 'submitted' in request.GET:
-			submitted = True
-	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
-
-
-def add_dosen(request):
-	submitted = False
-	if request.method == "POST":
-		form = Memberform(request.POST, request.FILES)
-		if form.is_valid():
-			Member = form.save(commit=False)
-			# logged in user
-			Member.save()
-			#form.save()
-			return 	HttpResponseRedirect('/add_member?submitted=True')	
-	else:
-		form = Memberform
-		if 'submitted' in request.GET:
-			submitted = True
-
-	return render(request, 'user.html', {'form':form, 'submitted':submitted})
-
 
 def createdosen(request):
     nip = request.POST["nip"]
