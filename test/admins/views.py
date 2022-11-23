@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Member, dosen
-from .forms import Memberform
+from .models import Member, dosen, matakuliah
+from .forms import Memberform, matakuliahform
 from .models import dosen  # type: ignore
 from .forms import dosenform
 from django.core.files.storage import FileSystemStorage
@@ -64,7 +64,7 @@ def add_member(request):
 			submitted = True
 	return render(request, 'dosen.html', {'form':form, 'submitted':submitted})
 
-
+#dosen
 def add_dosen(request):
 	submitted = False
 	if request.method == "POST":
@@ -96,7 +96,6 @@ def delete_dosen(request, id):
     dosens.delete()
     return redirect('dosen.html')
 
-#dosen
 def dosenview(request):
     Dosen = dosen.objects.all()
     context = {
@@ -104,6 +103,44 @@ def dosenview(request):
         'form': dosenform()
     }
     return render(request, 'dosen.html', context,)
+
+#matakuliah
+def add_matakuliah(request):
+	submitted = False
+	if request.method == "POST":
+		form = Memberform(request.POST, request.FILES)
+		if form.is_valid():
+			Member = form.save(commit=False)
+			# logged in user
+			Member.save()
+			#form.save()
+			return 	HttpResponseRedirect('/add_member?submitted=True')	
+	else:
+		form = Memberform
+		if 'submitted' in request.GET:
+			submitted = True
+	return render(request, 'matakuliah.html', {'form':form, 'submitted':submitted})
+
+def creatematakuliah(request):
+    kodeMK = request.POST["kodeMK"]
+    mataKuliah = request.POST["mataKuliah"]
+    sks = request.POST["sks"]
+    admins_matakuliah = mataKuliah(kodeMK=kodeMK, mataKuliah=mataKuliah, sks=sks)
+    admins_matakuliah.save()
+    return render(request, 'successmatkul.html')
+
+def delete_matakuliah(request, id):
+    deletematakuliah = matakuliah.objects.get(id=id)
+    deletematakuliah.delete()
+    return redirect('matakuliah.html')
+
+def matakuliahview(request):
+    viewmatakuliah = matakuliah.objects.all()
+    context = {
+        'matakuliah': viewmatakuliah,
+        'form': matakuliahform()
+    }
+    return render(request, 'matakuliah.html', context,)
 
 #sudah absen
 def sudahabsen(request):

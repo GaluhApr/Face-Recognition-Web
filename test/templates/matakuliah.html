@@ -121,16 +121,25 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Tambah Matakuliah</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form method="POST">
+                                        <form method="POST" action="/admins/creatematakuliah/">
                                         <div class="modal-body">
                                                 {% csrf_token %}
+                                                {{ form.as_p }}
                                                 <div class="mb-3">
-                                                    <label>Nim</label>
-                                                    <input type="text" id="Nim" class="form-control" />
+                                                    <label>Kode Matakuliah</label>
+                                                    <input type="text" id="kodeMK" class="form-control" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Matakuliah</label>
+                                                    <input type="text" id="mataKuliah" class="form-control" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>SKS</label>
+                                                    <input type="text" id="sks" class="form-control" />
                                                 </div>
                                         </div>
                                         <div class="modal-footer">
@@ -142,25 +151,21 @@
                                     </div>
                                 </div>
                             </div>
-
                             <hr style="border-top:1px solid #000; clear:both;" />
                             <table id="table2" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Matkul</th>
                                         <th>SKS</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for mahasiswa in mahasiswas %}
+                                    {% for matakuliah in matakuliah %}
                                     <tr>
-                                        <td>{{ mahasiswa.id }}</td>
-                                        <td>{{ mahasiswa.matkul  }}</td>
-                                        <td>{{ mahasiswa.sks  }}</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ matakuliah.kodeMK }}</td>
+                                        <td>{{ matakuliah.mataKuliah  }}</td>
+                                        <td>{{ matakuliah.sks  }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

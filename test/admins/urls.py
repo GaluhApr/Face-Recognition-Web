@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.index),
     path('addmember', views.add_member, name="add-member"),
     path('adddosen', views.add_dosen, name="add-dosen"),
+    path('addmatakuliah', views.add_dosen, name="add-matakuliah"),
     path('dashboard/', views.index),
     path('attendance/', views.attendance),
     path('user/', views.user),
@@ -19,5 +20,6 @@ urlpatterns = [
     path('jadwal/', views.jadwal),
     path('createmember/', views.createmember, name='createmember'),
     path('createdosen/', views.createdosen, name='createdosen'),
+    path('creatematakuliah/', views.creatematakuliah, name='creatematakuliah'),
     path('matkul/', views.matkul),
 ]

@@ -68,3 +68,20 @@ class dosenform(forms.ModelForm):
             'nip': forms.TextInput(attrs={'class': 'form-control'}),
             'namaDosen': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class matakuliahform(forms.ModelForm):
+    class Meta:
+        model = matakuliah
+        fields = "__all__"
+
+        labels = {
+            'kodeMK': 'kodeMK',
+            'mataKuliah': 'mataKuliah',
+            'sks': 'sks',
+        }
+
+        widgets = {
+            'kodeMK': forms.TextInput(attrs={'class': 'form-control'}),
+            'mataKuliah': forms.TextInput(attrs={'class': 'form-control'}),
+            'sks': forms.TextInput(attrs={'class': 'form-control'}),
+        }
