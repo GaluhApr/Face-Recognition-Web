@@ -73,7 +73,7 @@ Data Dosen
             {% endif %} -->
             <td>{{ dosen.nip }}</td>
             <td>{{ dosen.namaDosen }}</td>
-            <td><button type="submit" class="btn btn-danger" {% url 'delete-dosen' dosen.id %}>Delete</button></td>
+            <td><a href="/admins/deletedosen/{{dosen.id}}" onclick="return confirm('Are you sure want to delete ?')">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>
