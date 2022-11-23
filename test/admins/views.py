@@ -81,7 +81,7 @@ def add_matakuliah(request):
 			# logged in user
 			Member.save()
 			#form.save()
-			return 	HttpResponseRedirect('/add_member?submitted=True')	
+			return 	HttpResponse('/add_member?submitted=True')	
 	else:
 		form = Memberform
 		if 'submitted' in request.GET:
