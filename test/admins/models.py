@@ -94,11 +94,14 @@ class golongan(models.Model):
     def __str__(self):
         return "{}".format(self.namaGol)
     
-class mataKuliah(models.Model):
+class matakuliah(models.Model):
     kodeMK = models.CharField(max_length=10)
     mataKuliah = models.CharField(max_length=50)
     sks = models.IntegerField()
     
+    class Meta :
+        db_table = "admins_matakuliah"
+        
     def __str__(self):
         return "{}".format(self.mataKuliah)
     

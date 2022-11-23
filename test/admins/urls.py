@@ -17,5 +17,6 @@ urlpatterns = [
     path('jadwal/', views.jadwal),
     path('createmember/', views.createmember, name='createmember'),
     path('createdosen/', views.createdosen, name='createdosen'),
+    path('creatematakuliah/', views.creatematakuliah, name='creatematakuliah'),
     path('matkul/', views.matkul),
 ]
