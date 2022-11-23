@@ -1,6 +1,6 @@
 from django import forms
 from .models import Member
-from .models import dosen
+from .models import dosen,matakuliah
 import os
 
 golongan = (
