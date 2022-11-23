@@ -41,13 +41,13 @@ def createmember(request):
     admins_member = Member(Nim=Nim, Foto=Foto, Nama=Nama, Kelas=Kelas, Semester=Semester,
                         Telepon=Telepon, Alamat=Alamat, Jenis_Kelamin=Jenis_Kelamin)
     admins_member.save()
-    return render(request, 'success.html')
+    return redirect('listuser')
 
 def delete_member(request, id):
     delmember = Member.objects.get(id=id)
     delmember.delete()
     members = Member.objects.all()
-    return render(request, 'deletemember.html',)
+    return redirect('listuser')
 
 def createdosen(request):
     nip = request.POST["nip"]
@@ -55,13 +55,34 @@ def createdosen(request):
 
     admins_dosen = dosen(nip=nip, namaDosen=namaDosen)
     admins_dosen.save()
-    return render(request, 'successdosen.html')
+    return redirect( 'listdosen')
 
 def delete_dosen(request, id):
     deldosen = dosen.objects.get(id=id)
     deldosen.delete()
     Dosen = dosen.objects.all()
-    return render(request, 'deletedosen.html')
+    return redirect ('listdosen')
+
+def edit_dosen(request,id):
+    dosen_edit = dosen.objects.get(id=id)
+    
+    data = {
+        'nip': dosen_edit.nip,
+        'namaDosen': dosen_edit.namaDosen,
+    }
+    
+    admins_dosen = dosenform(request.POST or None, initial=data , instance=dosen_edit)
+    
+    if request.method == 'POST':
+        if admins_dosen.is_valid():
+            admins_dosen.save()
+            return HttpResponse(admins_dosen.as_p())
+    
+    context = {
+        'dosen': dosen_edit,
+        'admins_dosen': admins_dosen,
+    }
+    return render(request, 'editdosen.html', context)
 
 def dosenview(request):
     Dosen = dosen.objects.all()

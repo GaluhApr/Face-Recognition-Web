@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Data
+{% endblock title %}
+
+{% block header %}
+<h1 class="mt-4">Edit Data</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Form</li>
+</ol>
+{% endblock header %}
+
+{% block cardheader %}
+<i class="fas fa-table me-1"></i>
+Edit
+{% endblock cardheader %}
+
+{% block cardtable %}
+<form method="POST" action="/admins/editdosen">
+    <div class="modal-body">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInput" class="form-label">Nip</label>
+            <input type="text" class="form-control" name="nip">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput" class="form-label">Nama</label>
+            <input type="email" class="form-control" name="namaDosen">
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" a href="/admins/dosen" >Close</button>
+        
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    </div>
+</form>
+{% endblock cardtable %}
