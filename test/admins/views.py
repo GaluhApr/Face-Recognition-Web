@@ -76,7 +76,7 @@ def edit_dosen(request,id):
     if request.method == 'POST':
         if admins_dosen.is_valid():
             admins_dosen.save()
-            return HttpResponse(admins_dosen.as_p())
+            return redirect('listdosen')
     
     context = {
         'dosen': dosen_edit,

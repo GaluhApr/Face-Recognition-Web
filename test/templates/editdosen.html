@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Edit Data
+Edit Dosen
 {% endblock title %}
 
 {% block header %}
@@ -13,29 +13,28 @@ Edit Data
 
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
-Edit
+Edit Data
 {% endblock cardheader %}
 
 {% block cardtable %}
-<form method="POST" action="/admins/editdosen">
+<form method="POST" action="">
     <div class="modal-body">
         {% csrf_token %}
         <div class="mb-3">
             <label for="exampleInput" class="form-label">Nip</label>
-            <input type="text" class="form-control" name="nip">
+            <input type="text" class="form-control" name="nip" value="{{dosen.nip}}">
 
         </div>
         <div class="mb-3">
             <label for="exampleInput" class="form-label">Nama</label>
-            <input type="email" class="form-control" name="namaDosen">
+            <input type="text" class="form-control" name="namaDosen" value="{{dosen.namaDosen}}">
 
         </div>
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" a href="/admins/dosen" >Close</button>
-        
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <a href="/admins/dosen" class="btn btn-secondary" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary" value="update" onclick="return confirm('Are you sure want to update ?')">Submit</button>
     </div>
 </form>
 {% endblock cardtable %}
