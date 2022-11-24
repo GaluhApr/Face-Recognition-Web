@@ -141,10 +141,21 @@ Data User
             <td>{{ Member.Alamat }}</td>
             <td>{{ Member.Jenis_Kelamin }}</td>
             <td>
-                <form action="{% url 'delete-member' Member.id %}" method="post">
-                    {% csrf_token %}
-                    <button class="btn btn-danger" type="submit" ><i class="fa fa-trash" onclick="return confirm('Are you sure want to delete ?')"></i></button>
-                </form>
+                <div class="row justify-content-start">
+                    <div class="col-5">
+                        <form action="{% url 'edit-member' Member.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-warning" type="submit"><i class="fa fa-pencil"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-5">
+                        <form action="{% url 'delete-member' Member.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"
+                                    onclick="return confirm('Are you sure want to delete ?')"></i></button>
+                        </form>
+                    </div>
+                </div>
                 </td>
 
         </tr>
