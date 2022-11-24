@@ -5,6 +5,15 @@ from .models import dosen  # type: ignore
 from .forms import dosenform
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
+from PIL import Image
+
+from keras.models import load_model
+import numpy as np
+from numpy import asarray
+from numpy import expand_dims
+
+import pickle
+import cv2
 
 
 # Create your views here.
@@ -141,6 +150,7 @@ def tidakabsen(request):
 #absen
 def screen(request):
     return render(request, 'attendancescreen.html')
+
 
 #jadwal
 def jadwal(request):
