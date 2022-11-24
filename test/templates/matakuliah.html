@@ -33,17 +33,18 @@ Data Matkul
                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form method="POST">
             <div class="modal-body">
+                <form method="POST" action="/admins/creatematkul/">
                     {% csrf_token %}
                     {{ form.as_p }}
-            </div>
+                    
+
+            
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="submit">Submit</button>
+                <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
             </div>
             </form>
+        </div>
         </div>
     </div>
 </div>
@@ -52,20 +53,35 @@ Data Matkul
 <table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Kode</th>
             <th>Matkul</th>
             <th>SKS</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        {% for mahasiswa in mahasiswas %}
+        {% for matakuliah in Matkuls %}
         <tr>
-            <td>{{ mahasiswa.id }}</td>
-            <td>{{ mahasiswa.matkul  }}</td>
-            <td>{{ mahasiswa.sks  }}</td>
-            <td></td>
-            <td></td>
+            <td>{{ matakuliah.kodeMK }}</td>
+            <td>{{ matakuliah.mataKuliah  }}</td>
+            <td>{{ matakuliah.sks  }}</td>
+            <td>
+                <div class="row justify-content-start">
+                    <div class="col-2">
+                        <form action="{% url 'edit-matkul' matakuliah.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-warning" type="submit"><i class="fa fa-pencil"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-2">
+                        <form action="{% url 'delete-matkul' matakuliah.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"
+                                    onclick="return confirm('Are you sure want to delete ?')"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

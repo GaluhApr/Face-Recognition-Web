@@ -75,9 +75,9 @@ class matakuliahform(forms.ModelForm):
         fields = "__all__"
 
         labels = {
-            'kodeMK': 'kodeMK',
-            'mataKuliah': 'mataKuliah',
-            'sks': 'sks',
+            'kodeMK': 'KodeMK',
+            'mataKuliah': 'Matakuliah',
+            'sks': 'SKS',
         }
 
         widgets = {

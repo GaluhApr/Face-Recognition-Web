@@ -112,7 +112,6 @@ Data User
 <table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Nim</th>
             <th>Foto</th>
             <th>Nama</th>
@@ -127,7 +126,6 @@ Data User
     <tbody>
         {% for Member in Members %}
         <tr>
-            <td scope="row">{{Member.id}}</td>
             <td>{{ Member.Nim }}</td>
             {% if Member.Foto %}
             <td><img src="{{ Member.Foto.url }}" width="100px" height="100px" /></td>
@@ -156,7 +154,7 @@ Data User
                         </form>
                     </div>
                 </div>
-                </td>
+            </td>
 
         </tr>
         {% endfor %}

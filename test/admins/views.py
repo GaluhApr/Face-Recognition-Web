@@ -123,47 +123,54 @@ def edit_dosen(request,id):
     return render(request, 'editdosen.html', context)
 
 def dosenview(request):
-    Dosen = dosen.objects.all()
+    dosens = dosen.objects.all()
     context = {
-        'dosen': Dosen,
+        'Dosens': dosens,
         'form': dosenform()
     }
     return render(request, 'dosen.html', context,)
 
 #matakuliah
-def add_matakuliah(request):
-	submitted = False
-	if request.method == "POST":
-		form = Memberform(request.POST, request.FILES)
-		if form.is_valid():
-			Member = form.save(commit=False)
-			# logged in user
-			Member.save()
-			#form.save()
-			return 	HttpResponse('/add_member?submitted=True')	
-	else:
-		form = Memberform
-		if 'submitted' in request.GET:
-			submitted = True
-	return render(request, 'matakuliah.html', {'form':form, 'submitted':submitted})
-
-def creatematakuliah(request):
+def creatematkul(request):
     kodeMK = request.POST["kodeMK"]
     mataKuliah = request.POST["mataKuliah"]
     sks = request.POST["sks"]
-    admins_matakuliah = mataKuliah(kodeMK=kodeMK, mataKuliah=mataKuliah, sks=sks)
+    
+    admins_matakuliah = matakuliah(kodeMK=kodeMK, mataKuliah=mataKuliah, sks=sks)
     admins_matakuliah.save()
-    return render(request, 'successmatkul.html')
+    return redirect('listmatkul')
+
+def edit_matkul(request,id):
+    matkul_edit = matakuliah.objects.get(id=id)
+    
+    data = {
+        'kodeMK': matkul_edit.kodeMK,
+        'mataKuliah': matkul_edit.mataKuliah,
+        'sks': matkul_edit.sks,
+    }
+    
+    admins_matakuliah = matakuliahform(request.POST or None, initial=data , instance=matkul_edit)
+    
+    if request.method == 'POST':
+        if admins_matakuliah.is_valid():
+            admins_matakuliah.save()
+            return redirect('listmatkul')
+    
+    context = {
+        'matakuliah': matkul_edit,
+        'admins_matakuliah': admins_matakuliah,
+    }
+    return render(request, 'editmatkul.html', context)
 
 def delete_matakuliah(request, id):
     deletematakuliah = matakuliah.objects.get(id=id)
     deletematakuliah.delete()
-    return redirect('matakuliah.html')
+    return redirect('listmatkul')
 
-def matakuliahview(request):
-    viewmatakuliah = matakuliah.objects.all()
+def matkulview(request):
+    matkuls = matakuliah.objects.all()
     context = {
-        'matakuliah': viewmatakuliah,
+        'Matkuls': matkuls,
         'form': matakuliahform()
     }
     return render(request, 'matakuliah.html', context,)
@@ -184,6 +191,3 @@ def screen(request):
 #jadwal
 def jadwal(request):
     return render(request, 'jadwal.html')
-
-def matkul(request):
-    return render(request, 'matakuliah.html')

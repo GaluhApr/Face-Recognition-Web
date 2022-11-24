@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Matkul
+{% endblock title %}
+
+{% block header %}
+<h1 class="mt-4">Edit Matkul</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Form</li>
+</ol>
+{% endblock header %}
+
+{% block cardheader %}
+<i class="fas fa-table me-1"></i>
+Edit Data
+{% endblock cardheader %}
+
+{% block cardtable %}
+<form method="POST" action="">
+    <div class="modal-body">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInput" class="form-label">KodeMK</label>
+            <input type="text" class="form-control" name="kodeMK" value="{{matakuliah.kodeMK}}">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput" class="form-label">Matakuliah</label>
+            <input type="text" class="form-control" name="mataKuliah" value="{{matakuliah.mataKuliah}}">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInput" class="form-label">SKS</label>
+            <input type="text" class="form-control" name="sks" value="{{matakuliah.sks}}">
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a href="/admins/matkul" class="btn btn-secondary" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary" value="update" onclick="return confirm('Are you sure want to update ?')">Submit</button>
+    </div>
+</form>
+{% endblock cardtable %}

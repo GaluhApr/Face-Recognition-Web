@@ -44,11 +44,12 @@ Data Dosen
                         <input type="text" id="Nama" class="form-control" name=namaDosen />
                     </div> {% endcomment %}
 
-            </div>
+            
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
             </div>
             </form>
+        </div>
         </div>
     </div>
 </div>
@@ -63,7 +64,7 @@ Data Dosen
         </tr>
     </thead>
     <tbody>
-        {% for dosen in dosen %}
+        {% for dosen in Dosens %}
         <tr>
             <!-- <td>{{ Member.Nim }}</td>
             {% if Member.Foto %}
