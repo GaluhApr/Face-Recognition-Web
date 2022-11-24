@@ -58,6 +58,35 @@ def delete_member(request, id):
     members = Member.objects.all()
     return redirect('listuser')
 
+def edit_member(request,id):
+    member_edit = Member.objects.get(id=id)
+    
+    data = {
+        'Nim': member_edit.Nim,
+        'Foto': member_edit.Foto,
+        'Nama': member_edit.Nama,
+        'Kelas': member_edit.Kelas,
+        'Semester': member_edit.Semester,
+        'Telepon': member_edit.Telepon,
+        'Alamat': member_edit.Alamat,
+        'Jenis_Kelamin': member_edit.Jenis_Kelamin,
+    }
+    
+    admins_member = Memberform(request.POST or None, initial=data , instance=member_edit)
+    
+    if request.method == 'POST':
+        if admins_member.is_valid():
+            admins_member.save()
+            return redirect('listuser')
+    
+    context = {
+        'Member': member_edit,
+        'admins_member': admins_member,
+    }
+    return render(request, 'editmember.html', context)
+
+
+
 def createdosen(request):
     nip = request.POST["nip"]
     namaDosen = request.POST["namaDosen"]
@@ -85,7 +114,7 @@ def edit_dosen(request,id):
     if request.method == 'POST':
         if admins_dosen.is_valid():
             admins_dosen.save()
-            return HttpResponse(admins_dosen.as_p())
+            return redirect('listdosen')
     
     context = {
         'dosen': dosen_edit,
