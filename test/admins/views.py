@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Member, dosen, matakuliah
-from .forms import Memberform, matakuliahform
-from .models import dosen  # type: ignore
+from .forms import Memberform, matakuliahform 
 from .forms import dosenform
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
