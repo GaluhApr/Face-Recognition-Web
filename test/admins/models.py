@@ -16,18 +16,40 @@ def filepath(request, filename):
     filename = (old_filename)
     return os.path.join('upload/', filename)
 
-class Member(models.Model):
+class Dosen(models.Model):
+    nip = models.CharField(max_length=20)
+    namaDosen = models.CharField(max_length=100)
+    
+    class Meta :
+        db_table = "tb_dosen"
+        
+    def __str__(self):
+        return "{}".format(self.namaDosen)
+
+class Golongan(models.Model):
+    golongan = models.CharField(max_length=50)
+    
+    class Meta :
+        db_table = "tb_golongan"
+    
+    def __str__(self):
+        return "{}".format(self.golongan)
+    
+class Matkul(models.Model):
+    kodeMK = models.CharField(max_length=20)
+    mataKuliah = models.CharField(max_length=50)
+    sks = models.IntegerField()
+    
+    class Meta :
+        db_table = "tb_matkul"
+        
+    def __str__(self):
+        return "{}".format(self.mataKuliah)
+
+class Mahasiswa(models.Model):
     gender = (
         ('Laki-laki', 'Laki-laki'),
         ('Perempuan', 'Perempuan')
-    )
-    golongan = (
-        ('A', 'A'),
-        ('B', 'B'),
-        ('C', 'C'),
-        ('D', 'D'),
-        ('E', 'E'),
-        ('Internasional', 'Internasional')
     )
     smt = (
         ('1', '1'),
@@ -40,77 +62,64 @@ class Member(models.Model):
         ('8', '8'),
     )
     
-    Nim = models.CharField(max_length=9)
-    Foto = models.ImageField(upload_to='upload/', blank=True, null=True)
-    Nama = models.CharField(max_length=20)
-    Kelas = models.TextField(choices=golongan)
-    Semester = models.TextField(choices=smt)
-    Telepon = models.CharField(max_length=14)
-    Alamat = models.TextField(max_length=20)
-    Jenis_Kelamin = models.TextField(choices=gender)
+    nim = models.CharField(max_length=10)
+    foto = models.ImageField(upload_to='upload/', blank=True, null=True)
+    nama = models.CharField(max_length=20)
+    golongan = models.ForeignKey(Golongan, null=True, on_delete=models.SET_NULL)
+    semester = models.TextField(choices=smt)
+    telepon = models.CharField(max_length=14)
+    alamat = models.TextField(max_length=20)
+    jenisKelamin = models.TextField(choices=gender)
     
     class Meta :
-        db_table = "admins_member"
+        db_table = "tb_mahasiswa"
     
     def __str__(self):
-        return "{}".format(self.Nama)
+        return "{}".format(self.nama)
     
-class foto(models.Model):
-    idFoto = models.IntegerField()
-    namaFoto = models.CharField(max_length=50)
     
-    def __str__(self):
-        return "{}".format(self.namaFoto)
-    
-class absensi(models.Model):
-    idAbsen = models.CharField(max_length=50)
-    keterangan = models.CharField(max_length=50)
-    
-    def __str__(self):
-        return "{}".format(self.keterangan)
-    
-class beritaAcara(models.Model):
-    idAcara = models.CharField(max_length=50)
-    pertemuan = models.CharField(max_length=5)
-    tanggal = models.DateTimeField()
-    
-    def __str__(self):
-        return "{}".format(self.pertemuan)
-    
-class jadwal(models.Model):
-    idJadwal = models.CharField(max_length=50)
+class Jadwal(models.Model):
+    namaDosen = models.ForeignKey(Dosen, null=True, on_delete=models.SET_NULL)
+    golongan = models.ForeignKey(Golongan, null=True, on_delete=models.SET_NULL)
+    matkul = models.ForeignKey(Matkul, null=True, on_delete=models.SET_NULL)
     ruangan = models.CharField(max_length=5)
     hari = models.CharField(max_length=30)
-    jamMulai = models.IntegerField()
-    jamSelesai = models.IntegerField()
+    jamMulai = models.TimeField(auto_now=False, auto_now_add=False)
+    jamSelesai = models.TimeField(auto_now=False, auto_now_add=False)
+    
+    class Meta :
+        db_table = "tb_jadwal"
     
     def __str__(self):
         return "{}".format(self.ruangan)
     
-class golongan(models.Model):
-    idGol = models.CharField(max_length=2)
-    namaGol = models.CharField(max_length=50)
+class Absen(models.Model):
+    sts = (
+        ('Masuk', 'Masuk'),
+        ('Ijin', 'Ijin'),
+        ('Sakit', 'Sakit'),
+        ('Alpha', 'Alpha')
+    )
     
-    def __str__(self):
-        return "{}".format(self.namaGol)
-    
-class matakuliah(models.Model):
-    kodeMK = models.CharField(max_length=10)
-    mataKuliah = models.CharField(max_length=50)
-    sks = models.IntegerField()
-    
-    class Meta :
-        db_table = "admins_matakuliah"
-        
-    def __str__(self):
-        return "{}".format(self.mataKuliah)
-    
-class dosen(models.Model):
-    nip = models.CharField(max_length=15)
-    namaDosen = models.CharField(max_length=50)
+    mahasiswa = models.ForeignKey(Mahasiswa, null=True, on_delete=models.SET_NULL)
+    jadwal = models.ForeignKey(Jadwal, null=True, on_delete=models.SET_NULL)
+    tanggal = models.DateField(auto_now=False, auto_now_add=False)
+    status = models.TextField(choices=sts)
     
     class Meta :
-        db_table = "admins_dosen"
+        db_table = "tb_absen"
         
     def __str__(self):
-        return "{}".format(self.namaDosen)
+        return "{}".format(self.mahasiswa, self.status)
+    
+class Users(models.Model):
+    username = models.CharField(max_length=30)
+    password = models.CharField(max_length=40)
+    
+    class Meta :
+        db_table = "tb_users"
+        
+    def __str__(self):
+        return "{}".format(self.username)
+    
+    

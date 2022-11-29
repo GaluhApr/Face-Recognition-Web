@@ -2,8 +2,12 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Post, Member, dosen, matakuliah
+from .models import Post, Mahasiswa, Dosen, Golongan, Matkul, Jadwal, Absen, Users
 admin.site.register(Post)
-admin.site.register(Member)
-admin.site.register(dosen)
-admin.site.register(matakuliah)
+admin.site.register(Mahasiswa)
+admin.site.register(Dosen)
+admin.site.register(Golongan)
+admin.site.register(Jadwal)
+admin.site.register(Matkul)
+admin.site.register(Absen)
+admin.site.register(Users)

@@ -1,16 +1,8 @@
 from django import forms
-from .models import Member
-from .models import dosen,matakuliah
+from .models import Mahasiswa, Dosen, Matkul, Jadwal, Golongan, Absen, Users
 import os
 
-golongan = (
-    ('A', 'A'),
-    ('B', 'B'),
-    ('C', 'C'),
-    ('D', 'D'),
-    ('E', 'E'),
-    ('Internasional', 'Internasional')
-)
+
 smt = (
     ('1', '1'),
     ('2', '2'),
@@ -29,7 +21,7 @@ gender = (
 
 class Memberform(forms.ModelForm):
     class Meta:
-        model = Member
+        model = Mahasiswa
         fields = "__all__"
 
         labels = {
@@ -47,7 +39,7 @@ class Memberform(forms.ModelForm):
             'Nim': forms.TextInput(attrs={'class': 'form-control'}),
             'Foto': forms.FileInput(attrs={'class': 'form-control'}),
             'Nama': forms.TextInput(attrs={'class': 'form-control'}),
-            'Kelas': forms.Select(choices=golongan, attrs={'class': 'form-control'}),
+            'Golongan': forms.Select(attrs={'class': 'form-control'}),
             'Semester': forms.Select(choices=smt, attrs={'class': 'form-control'}),
             'Telepon': forms.TextInput(attrs={'class': 'form-control'}),
             'Alamat': forms.TextInput(attrs={'class': 'form-control'}),
@@ -56,7 +48,7 @@ class Memberform(forms.ModelForm):
         
 class dosenform(forms.ModelForm):
     class Meta:
-        model = dosen
+        model = Dosen
         fields = "__all__"
 
         labels = {
@@ -71,7 +63,7 @@ class dosenform(forms.ModelForm):
 
 class matakuliahform(forms.ModelForm):
     class Meta:
-        model = matakuliah
+        model = Matkul
         fields = "__all__"
 
         labels = {

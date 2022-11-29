@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Member, dosen, matakuliah
-from .forms import Memberform, matakuliahform 
-from .forms import dosenform
+from .models import Mahasiswa, Matkul, Dosen
+from .forms import Memberform, matakuliahform, dosenform
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from PIL import Image
@@ -28,7 +27,7 @@ def attendance(request):
 
 #user
 def user(request):
-    members = Member.objects.all()
+    members = Mahasiswa.objects.all()
     context = {
         'Members': members,
         'form': Memberform()
@@ -37,38 +36,38 @@ def user(request):
     return render(request, 'user.html', context,)
 
 def createmember(request):
-    Nim = request.POST["Nim"]
-    Foto = request.POST["Foto"]
-    Nama = request.POST["Nama"]
-    Kelas = request.POST["Kelas"]
-    Semester = request.POST["Semester"]
-    Telepon = request.POST["Telepon"]
-    Alamat = request.POST["Alamat"]
-    Jenis_Kelamin = request.POST["Jenis_Kelamin"]
+    nim = request.POST["Nim"]
+    foto = request.POST["Foto"]
+    nama = request.POST["Nama"]
+    golongan = request.POST["Kelas"]
+    semester = request.POST["Semester"]
+    telepon = request.POST["Telepon"]
+    alamat = request.POST["Alamat"]
+    jenisKelamin = request.POST["Jenis_Kelamin"]
 
-    admins_member = Member(Nim=Nim, Foto=Foto, Nama=Nama, Kelas=Kelas, Semester=Semester,
-                        Telepon=Telepon, Alamat=Alamat, Jenis_Kelamin=Jenis_Kelamin)
+    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan=golongan, semester=semester,
+                        telepon=telepon, alamat=alamat, jenisKelamin=jenisKelamin)
     admins_member.save()
     return redirect('listuser')
 
 def delete_member(request, id):
-    delmember = Member.objects.get(id=id)
+    delmember = Mahasiswa.objects.get(id=id)
     delmember.delete()
-    members = Member.objects.all()
+    members = Mahasiswa.objects.all()
     return redirect('listuser')
 
 def edit_member(request,id):
-    member_edit = Member.objects.get(id=id)
+    member_edit = Mahasiswa.objects.get(id=id)
     
     data = {
-        'Nim': member_edit.Nim,
-        'Foto': member_edit.Foto,
-        'Nama': member_edit.Nama,
-        'Kelas': member_edit.Kelas,
-        'Semester': member_edit.Semester,
-        'Telepon': member_edit.Telepon,
-        'Alamat': member_edit.Alamat,
-        'Jenis_Kelamin': member_edit.Jenis_Kelamin,
+        'Nim': member_edit.nim,
+        'Foto': member_edit.foto,
+        'Nama': member_edit.nama,
+        'Golongan': member_edit.golongan,
+        'Semester': member_edit.semester,
+        'Telepon': member_edit.telepon,
+        'Alamat': member_edit.alamat,
+        'Jenis_Kelamin': member_edit.jenisKelamin,
     }
     
     admins_member = Memberform(request.POST or None, initial=data , instance=member_edit)
@@ -90,18 +89,18 @@ def createdosen(request):
     nip = request.POST["nip"]
     namaDosen = request.POST["namaDosen"]
 
-    admins_dosen = dosen(nip=nip, namaDosen=namaDosen)
+    admins_dosen = Dosen(nip=nip, namaDosen=namaDosen)
     admins_dosen.save()
     return redirect( 'listdosen')
 
 def delete_dosen(request, id):
-    deldosen = dosen.objects.get(id=id)
+    deldosen = Dosen.objects.get(id=id)
     deldosen.delete()
-    Dosen = dosen.objects.all()
+    deldosen = Dosen.objects.all()
     return redirect ('listdosen')
 
 def edit_dosen(request,id):
-    dosen_edit = dosen.objects.get(id=id)
+    dosen_edit = Dosen.objects.get(id=id)
     
     data = {
         'nip': dosen_edit.nip,
@@ -122,7 +121,7 @@ def edit_dosen(request,id):
     return render(request, 'editdosen.html', context)
 
 def dosenview(request):
-    dosens = dosen.objects.all()
+    dosens = Dosen.objects.all()
     context = {
         'Dosens': dosens,
         'form': dosenform()
@@ -135,12 +134,12 @@ def creatematkul(request):
     mataKuliah = request.POST["mataKuliah"]
     sks = request.POST["sks"]
     
-    admins_matakuliah = matakuliah(kodeMK=kodeMK, mataKuliah=mataKuliah, sks=sks)
+    admins_matakuliah = Matkul(kodeMK=kodeMK, mataKuliah=mataKuliah, sks=sks)
     admins_matakuliah.save()
     return redirect('listmatkul')
 
 def edit_matkul(request,id):
-    matkul_edit = matakuliah.objects.get(id=id)
+    matkul_edit = Matkul.objects.get(id=id)
     
     data = {
         'kodeMK': matkul_edit.kodeMK,
@@ -162,12 +161,12 @@ def edit_matkul(request,id):
     return render(request, 'editmatkul.html', context)
 
 def delete_matakuliah(request, id):
-    deletematakuliah = matakuliah.objects.get(id=id)
+    deletematakuliah = Matkul.objects.get(id=id)
     deletematakuliah.delete()
     return redirect('listmatkul')
 
 def matkulview(request):
-    matkuls = matakuliah.objects.all()
+    matkuls = Matkul.objects.all()
     context = {
         'Matkuls': matkuls,
         'form': matakuliahform()
