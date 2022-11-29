@@ -20,7 +20,8 @@ Edit Data
 <form method="POST" action="">
     <div class="modal-body">
         {% csrf_token %}
-        <div class="mb-3">
+        {{form.as_p}}
+        <!-- <div class="mb-3">
             <label for="exampleInput" class="form-label">KodeMK</label>
             <input type="text" class="form-control" name="kodeMK" value="{{matakuliah.kodeMK}}">
 
@@ -34,12 +35,13 @@ Edit Data
             <label for="exampleInput" class="form-label">SKS</label>
             <input type="text" class="form-control" name="sks" value="{{matakuliah.sks}}">
 
-        </div>
+        </div> -->
 
     </div>
     <div class="modal-footer">
         <a href="/admins/matkul" class="btn btn-secondary" role="button">Cancel</a>
-        <button type="submit" class="btn btn-primary" value="update" onclick="return confirm('Are you sure want to update ?')">Submit</button>
+        <button type="submit" class="btn btn-primary" value="update"
+            onclick="return confirm('Are you sure want to update ?')">Submit</button>
     </div>
 </form>
 {% endblock cardtable %}

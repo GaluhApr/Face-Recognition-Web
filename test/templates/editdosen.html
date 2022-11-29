@@ -20,7 +20,8 @@ Edit Data
 <form method="POST" action="">
     <div class="modal-body">
         {% csrf_token %}
-        <div class="mb-3">
+        {{form.as_p}}
+        <!-- <div class="mb-3">
             <label for="exampleInput" class="form-label">Nip</label>
             <input type="text" class="form-control" name="nip" value="{{dosen.nip}}">
 
@@ -29,7 +30,7 @@ Edit Data
             <label for="exampleInput" class="form-label">Nama</label>
             <input type="text" class="form-control" name="namaDosen" value="{{dosen.namaDosen}}">
 
-        </div>
+        </div> -->
 
     </div>
     <div class="modal-footer">

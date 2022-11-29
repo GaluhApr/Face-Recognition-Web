@@ -46,6 +46,7 @@ class Memberform(forms.ModelForm):
             'jenisKelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
         }
         
+        
 class dosenform(forms.ModelForm):
     class Meta:
         model = Dosen
@@ -94,7 +95,7 @@ class jadwalform(forms.ModelForm):
         }
 
         widgets = {
-            'namaDosen': forms.Select(attrs={'class': 'form-control', 'value': 'CONSTANT_VALUE'}),
+            'namaDosen': forms.Select(attrs={'class': 'form-control', 'value': 'Jadwal.namaDosen'}),
             'golongan': forms.Select(attrs={'class': 'form-control'}),
             'matkul': forms.Select(attrs={'class': 'form-control'}),
             'ruangan': forms.TextInput(attrs={'class': 'form-control'}),

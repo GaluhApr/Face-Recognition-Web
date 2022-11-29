@@ -60,14 +60,14 @@ def edit_member(request,id):
     member_edit = Mahasiswa.objects.get(id=id)
     
     data = {
-        'Nim': member_edit.nim,
-        'Foto': member_edit.foto,
-        'Nama': member_edit.nama,
-        'Golongan': member_edit.golongan,
-        'Semester': member_edit.semester,
-        'Telepon': member_edit.telepon,
-        'Alamat': member_edit.alamat,
-        'Jenis_Kelamin': member_edit.jenisKelamin,
+        'nim': member_edit.nim,
+        'foto': member_edit.foto,
+        'nama': member_edit.nama,
+        'golongan': member_edit.golongan,
+        'semester': member_edit.semester,
+        'telepon': member_edit.telepon,
+        'alamat': member_edit.alamat,
+        'jenisKelamin': member_edit.jenisKelamin,
     }
     
     admins_member = Memberform(request.POST or None, initial=data , instance=member_edit)
@@ -80,6 +80,7 @@ def edit_member(request,id):
     context = {
         'Member': member_edit,
         'admins_member': admins_member,
+        'form': Memberform()
     }
     return render(request, 'editmember.html', context)
 
@@ -117,6 +118,7 @@ def edit_dosen(request,id):
     context = {
         'dosen': dosen_edit,
         'admins_dosen': admins_dosen,
+        'form': dosenform()
     }
     return render(request, 'editdosen.html', context)
 
@@ -157,6 +159,7 @@ def edit_matkul(request,id):
     context = {
         'matakuliah': matkul_edit,
         'admins_matakuliah': admins_matakuliah,
+        'form': matakuliahform()
     }
     return render(request, 'editmatkul.html', context)
 
