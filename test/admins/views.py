@@ -78,6 +78,7 @@ def edit_member(request,id):
             return redirect('listuser')
     
     context = {
+        'page_title' : 'Mahasiswa',
         'Member': member_edit,
         'form': Memberform(initial=data , instance=member_edit)
     }
@@ -115,6 +116,7 @@ def edit_dosen(request,id):
             return redirect('listdosen')
     
     context = {
+        'page_title' : 'Dosen',
         'dosen': dosen_edit,
         'form': dosenform(initial=data , instance=dosen_edit)
     }
@@ -155,6 +157,7 @@ def edit_matkul(request,id):
             return redirect('listmatkul')
     
     context = {
+        'page_title' : 'Matkul',
         'matakuliah': matkul_edit,
         'form': matakuliahform(initial=data , instance=matkul_edit)
     }
@@ -235,6 +238,7 @@ def edit_jadwal(request,id):
             return redirect('listjadwal')
     
     context = {
+        'page_title' : 'Jadwal',
         'jadwal': jadwal_edit,
         'form': jadwalform( initial=data , instance=jadwal_edit)
     }
