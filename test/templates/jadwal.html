@@ -17,17 +17,22 @@ Jadwal Matakuliah
 {% endblock cardheader %}
 
 {% block cardtable %}
-<p>
-    
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember"
-        style="width:300px;">
-        Tambah Jadwal
-    </button>
-    <form action="{% url 'exportjadwal' %}" method="post">
-        {% csrf_token %}
-        <button class="btn btn-success" type="submit">Export</button>
-    </form>
-</p>
+<div class="container overflow-hidden">
+    <div class="row">
+        <div class="col-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember">
+                Tambah Jadwal
+            </button>
+        </div>
+        <div class="col">
+            <form action="{% url 'exportjadwal' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-success" type="submit">Export</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
