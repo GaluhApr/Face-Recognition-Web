@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Edit Dosen
+Edit Data
 {% endblock title %}
 
 {% block header %}
-<h1 class="mt-4">Edit Dosen</h1>
+<h1 class="mt-4">Edit Data</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Form</li>
 </ol>
@@ -21,20 +21,10 @@ Edit Data
     <div class="modal-body">
         {% csrf_token %}
         {{form.as_p}}
-        <!-- <div class="mb-3">
-            <label for="exampleInput" class="form-label">Nip</label>
-            <input type="text" class="form-control" name="nip" value="{{dosen.nip}}">
-
-        </div>
-        <div class="mb-3">
-            <label for="exampleInput" class="form-label">Nama</label>
-            <input type="text" class="form-control" name="namaDosen" value="{{dosen.namaDosen}}">
-
-        </div> -->
 
     </div>
     <div class="modal-footer">
-        <a href="/admins/dosen" class="btn btn-secondary" role="button">Cancel</a>
+        <a href="javascript:history.go(-1)" class="btn btn-secondary" role="button">Cancel</a>
         <button type="submit" class="btn btn-primary" value="update" onclick="return confirm('Are you sure want to update ?')">Submit</button>
     </div>
 </form>

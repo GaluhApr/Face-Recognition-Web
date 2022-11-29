@@ -79,10 +79,9 @@ def edit_member(request,id):
     
     context = {
         'Member': member_edit,
-        'admins_member': admins_member,
-        'form': Memberform()
+        'form': Memberform(initial=data , instance=member_edit)
     }
-    return render(request, 'editmember.html', context)
+    return render(request, 'editdata.html', context)
 
 
 
@@ -117,10 +116,9 @@ def edit_dosen(request,id):
     
     context = {
         'dosen': dosen_edit,
-        'admins_dosen': admins_dosen,
-        'form': dosenform()
+        'form': dosenform(initial=data , instance=dosen_edit)
     }
-    return render(request, 'editdosen.html', context)
+    return render(request, 'editdata.html', context)
 
 def dosenview(request):
     dosens = Dosen.objects.all()
@@ -158,10 +156,9 @@ def edit_matkul(request,id):
     
     context = {
         'matakuliah': matkul_edit,
-        'admins_matakuliah': admins_matakuliah,
-        'form': matakuliahform()
+        'form': matakuliahform(initial=data , instance=matkul_edit)
     }
-    return render(request, 'editmatkul.html', context)
+    return render(request, 'editdata.html', context)
 
 def delete_matakuliah(request, id):
     deletematakuliah = Matkul.objects.get(id=id)
@@ -239,7 +236,6 @@ def edit_jadwal(request,id):
     
     context = {
         'jadwal': jadwal_edit,
-        'admins_jadwal': admins_jadwal,
-        'form' : jadwalform()
+        'form': jadwalform( initial=data , instance=jadwal_edit)
     }
-    return render(request, 'editjadwal.html', context)
+    return render(request, 'editdata.html', context)

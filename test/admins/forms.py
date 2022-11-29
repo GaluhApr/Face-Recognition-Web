@@ -44,8 +44,7 @@ class Memberform(forms.ModelForm):
             'telepon': forms.TextInput(attrs={'class': 'form-control'}),
             'alamat': forms.TextInput(attrs={'class': 'form-control'}),
             'jenisKelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
-        }
-        
+        }        
         
 class dosenform(forms.ModelForm):
     class Meta:
