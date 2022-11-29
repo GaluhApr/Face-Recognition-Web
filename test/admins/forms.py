@@ -25,25 +25,25 @@ class Memberform(forms.ModelForm):
         fields = "__all__"
 
         labels = {
-            'Nim': 'Nim',
-            'Foto': 'Foto',
-            'Nama': 'Nama',
-            'Kelas': 'Kelas',
-            'Semester': 'Semester',
-            'Telepon': 'Telepon',
-            'Alamat': 'Alamat',
-            'Jenis_Kelamin': 'Jenis_Kelamin',
+            'nim': 'Nim',
+            'foto': 'Foto',
+            'nama': 'Nama',
+            'golongan': 'Golongan',
+            'semester': 'Semester',
+            'telepon': 'Telepon',
+            'alamat': 'Alamat',
+            'jenisKelamin': 'Jenis Kelamin',
         }
 
         widgets = {
-            'Nim': forms.TextInput(attrs={'class': 'form-control'}),
-            'Foto': forms.FileInput(attrs={'class': 'form-control'}),
-            'Nama': forms.TextInput(attrs={'class': 'form-control'}),
-            'Golongan': forms.Select(attrs={'class': 'form-control'}),
-            'Semester': forms.Select(choices=smt, attrs={'class': 'form-control'}),
-            'Telepon': forms.TextInput(attrs={'class': 'form-control'}),
-            'Alamat': forms.TextInput(attrs={'class': 'form-control'}),
-            'Jenis_Kelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
+            'nim': forms.TextInput(attrs={'class': 'form-control'}),
+            'foto': forms.FileInput(attrs={'class': 'form-control'}),
+            'nama': forms.TextInput(attrs={'class': 'form-control'}),
+            'golongan': forms.Select(attrs={'class': 'form-control'}),
+            'semester': forms.Select(choices=smt, attrs={'class': 'form-control'}),
+            'telepon': forms.TextInput(attrs={'class': 'form-control'}),
+            'alamat': forms.TextInput(attrs={'class': 'form-control'}),
+            'jenisKelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
         }
         
 class dosenform(forms.ModelForm):
@@ -77,3 +77,29 @@ class matakuliahform(forms.ModelForm):
             'mataKuliah': forms.TextInput(attrs={'class': 'form-control'}),
             'sks': forms.TextInput(attrs={'class': 'form-control'}),
         }
+        
+class jadwalform(forms.ModelForm):
+    class Meta:
+        model = Jadwal
+        fields = "__all__"
+
+        labels = {
+            'namaDosen': 'Nama Dosen',
+            'golongan': 'Golongan',
+            'matkul': 'Mata Kuliah',
+            'ruangan': 'Ruangan',
+            'hari': 'Hari',
+            'jamMulai': 'Jam Mulai',
+            'jamSelesai': 'Jam Selesai',
+        }
+
+        widgets = {
+            'namaDosen': forms.Select(attrs={'class': 'form-control' }),
+            'golongan': forms.Select(attrs={'class': 'form-control'}),
+            'matkul': forms.Select(attrs={'class': 'form-control'}),
+            'ruangan': forms.TextInput(attrs={'class': 'form-control'}),
+            'hari': forms.TextInput(attrs={'class': 'form-control'}),
+            'jamMulai': forms.TimeInput(attrs={'type': 'time' }),
+            'jamSelesai': forms.TimeInput(attrs={'type': 'time' }),
+        }
+        

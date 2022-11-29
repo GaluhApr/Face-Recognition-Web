@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Data User
+Data Mahasiswa
 {% endblock title %}
 
 
 {% block header %}
-<h1 class="mt-4">User</h1>
+<h1 class="mt-4">Mahasiswa</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Laporan</li>
 </ol>
@@ -14,14 +14,14 @@ Data User
 
 {% block cardheader %}
 <i class="fas fa-table me-1"></i>
-Data User
+Data Mahasiswa
 {% endblock cardheader %}
 
 {% block cardtable %}
 <p>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember"
         style="width:300px;">
-        Tambah User
+        Tambah Mahasiswa
     </button>
 </p>
 <!-- Modal -->
@@ -29,76 +29,13 @@ Data User
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Mahasiswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="POST" action="/admins/createmember/">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <!-- <div class="mb-3">
-                        <label>Nim</label>
-                        <input type="text" id="Nim" class="form-control" name=Nim />
-                    </div>
-                    <div class="mb-3">
-                        <label>Foto</label>
-                        <input type="file" id="Foto" class="form-control" name=Foto accept="image/*"/>
-                    </div>
-                    <div class="mb-3">
-                        <label>Nama</label>
-                        <input type="text" id="Nama" class="form-control" name=Nama />
-                    </div>
-                    <div class="mb-3">
-                        <label>Kelas</label>
-                        <select class="form-select" aria-label="Default select example"
-                            name="Kelas">
-
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="Internasional">Internasional</option>
-
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label>Semester</label>
-                        <select class="form-select" aria-label="Default select example"
-                            name="Semester">
-
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label>Telepon</label>
-                        <input type="text" id="Telepon" class="form-control" name=Telepon />
-                    </div>
-                    <div class="mb-3">
-                        <label>Alamat</label>
-                        <input type="text" id="Alamat" class="form-control" name=Alamat />
-                    </div>
-                    <div class="mb-3">
-                        <label>Jenis Kelamin</label>
-                        <select class="form-select" aria-label="Default select example"
-                            name="Jenis_Kelamin">
-
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-
-
-                        </select>
-                    </div> -->
-
-
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>

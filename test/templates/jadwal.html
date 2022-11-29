@@ -32,34 +32,17 @@ Jadwal Matakuliah
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST">
+                <form method="POST" action="/admins/createjadwal/">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        <label>Id Jadwal</label>
-                        <input type="text" id="Nim" class="form-control" />
+                    {{ form.as_p }}
+
+
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
                     </div>
-                    <div class="mb-3">
-                        <label>Ruangan</label>
-                        <input type="text" id="Nama" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label>Hari</label>
-                        <input type="text" id="Kelas" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label>Jam Mulai</label>
-                        <input type="text" id="Semester" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label>Jam Selesai</label>
-                        <input type="text" id="Telepon" class="form-control" />
-                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="submit">Submit</button>
-            </div>
-            </form>
         </div>
     </div>
 </div>
@@ -68,29 +51,43 @@ Jadwal Matakuliah
 <table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
-            <th>Jadwal</th>
-            <th>Pertemuan</th>
-            <th>Golongan</th>
+            <th>Hari</th>
             <th>Matakuliah</th>
             <th>Dosen</th>
+            <th>Golongan</th>
             <th>Ruangan</th>
-            <th>Hari</th>
             <th>Jam Mulai</th>
             <th>Jam Selesai</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        {% for Member in Members %}
+        {% for Jadwal in Jadwals %}
         <tr>
-            <td>{{ Member.idJadwal }}</td>
-            <td>{{ Member.pertemuan }}</td>
-            <td>{{ Member.namaGol }}</td>
-            <td>{{ Member.mataKuliah }}</td>
-            <td>{{ Member.namaDosen }}</td>
-            <td>{{ Member.ruangan }}</td>
-            <td>{{ Member.hari }}</td>
-            <td>{{ Member.jamMulai }}</td>
-            <td>{{ Member.jamSelesai }}</td>
+            <td>{{ Jadwal.hari }}</td>
+            <td>{{ Jadwal.matkul}}</td>
+            <td>{{ Jadwal.namaDosen }}</td>
+            <td>{{ Jadwal.golongan }}</td>
+            <td>{{ Jadwal.ruangan }}</td>
+            <td>{{ Jadwal.jamMulai }}</td>
+            <td>{{ Jadwal.jamSelesai }}</td>
+            <td>
+                <div class="row justify-content-start">
+                    <div class="col-4">
+                        <form action="{% url 'edit-jadwal' Jadwal.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-warning" type="submit"><i class="fa fa-pencil"></i></button>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <form action="{% url 'delete-jadwal' Jadwal.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"
+                                    onclick="return confirm('Are you sure want to delete ?')"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

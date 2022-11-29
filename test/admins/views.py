@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Mahasiswa, Matkul, Dosen
-from .forms import Memberform, matakuliahform, dosenform
+from .models import Mahasiswa, Matkul, Dosen, Jadwal
+from .forms import Memberform, matakuliahform, dosenform, jadwalform
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from PIL import Image
@@ -188,4 +188,55 @@ def screen(request):
 
 #jadwal
 def jadwal(request):
-    return render(request, 'jadwal.html')
+    jadwals = Jadwal.objects.all()
+    context = {
+        'Jadwals': jadwals,
+        'form': jadwalform()
+    }
+    return render(request, 'jadwal.html', context)
+
+def delete_jadwal(request, id):
+    deletejadwal = Jadwal.objects.get(id=id)
+    deletejadwal.delete()
+    return redirect('listjadwal')
+
+def createjadwal(request):
+    namaDosen = request.POST["namaDosen"]
+    golongan = request.POST["golongan"]
+    matkul = request.POST["matkul"]
+    ruangan = request.POST["ruangan"]
+    hari = request.POST["hari"]
+    jamMulai = request.POST["jamMulai"]
+    jamSelesai = request.POST["jamSelesai"]
+    
+    admins_jadwal = Jadwal(namaDosen_id=namaDosen, golongan_id=golongan, matkul_id=matkul, ruangan=ruangan, hari=hari, jamMulai=jamMulai, jamSelesai=jamSelesai)
+    admins_jadwal.save()
+    return redirect('listjadwal')
+
+def edit_jadwal(request,id):
+    jadwal_edit = Jadwal.objects.get(id=id)
+    
+    data = {
+        'namaDosen': jadwal_edit.namaDosen,
+        'golongan': jadwal_edit.golongan,
+        'matkul': jadwal_edit.matkul,
+        'ruangan': jadwal_edit.ruangan,
+        'hari': jadwal_edit.hari,
+        'jamMulai': jadwal_edit.jamMulai,
+        'jamSelesai': jadwal_edit.jamSelesai,
+        
+    }
+    
+    admins_jadwal = jadwalform(request.POST or None, initial=data , instance=jadwal_edit)
+    
+    if request.method == 'POST':
+        if admins_jadwal.is_valid():
+            admins_jadwal.save()
+            return redirect('listjadwal')
+    
+    context = {
+        'jadwal': jadwal_edit,
+        'admins_jadwal': admins_jadwal,
+        'form' : jadwalform()
+    }
+    return render(request, 'editjadwal.html', context)

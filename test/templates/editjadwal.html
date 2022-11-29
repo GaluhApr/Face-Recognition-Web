@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Jadwal
+{% endblock title %}
+
+{% block header %}
+<h1 class="mt-4">Edit Jadwal</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Form</li>
+</ol>
+{% endblock header %}
+
+{% block cardheader %}
+<i class="fas fa-table me-1"></i>
+Edit Data
+{% endblock cardheader %}
+
+{% block cardtable %}
+<form method="POST" action="">
+    <div class="modal-body">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+    </div>
+    <div class="modal-footer">
+        <a href="/admins/jadwal" class="btn btn-secondary" role="button">Cancel</a>
+        <button type="submit" class="btn btn-primary" value="update" onclick="return confirm('Are you sure want to update ?')">Submit</button>
+    </div>
+</form>
+{% endblock cardtable %}
