@@ -18,10 +18,15 @@ Jadwal Matakuliah
 
 {% block cardtable %}
 <p>
+    
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewmember"
         style="width:300px;">
         Tambah Jadwal
     </button>
+    <form action="{% url 'exportjadwal' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Export</button>
+    </form>
 </p>
 <!-- Modal -->
 <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

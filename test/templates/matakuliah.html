@@ -22,6 +22,10 @@ Data Matkul
         data-bs-target="#addnewmember" style="width:300px;">
         Tambah Matkul
     </button>
+    <form action="{% url 'exportmatkul' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Export</button>
+    </form>
 </p>
 <!-- Modal -->
 <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel"

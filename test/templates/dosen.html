@@ -22,6 +22,10 @@ Data Dosen
         style="width:300px;">
         Tambah Dosen
     </button>
+    <form action="{% url 'exportdosen' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Export</button>
+    </form>
 </p>
 <!-- Modal -->
 <div class="modal fade" id="addnewmember" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
