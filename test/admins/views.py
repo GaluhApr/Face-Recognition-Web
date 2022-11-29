@@ -36,16 +36,16 @@ def user(request):
     return render(request, 'user.html', context,)
 
 def createmember(request):
-    nim = request.POST["Nim"]
-    foto = request.POST["Foto"]
-    nama = request.POST["Nama"]
-    golongan = request.POST["Kelas"]
-    semester = request.POST["Semester"]
-    telepon = request.POST["Telepon"]
-    alamat = request.POST["Alamat"]
-    jenisKelamin = request.POST["Jenis_Kelamin"]
+    nim = request.POST["nim"]
+    foto = request.POST["foto"]
+    nama = request.POST["nama"]
+    golongan = request.POST["golongan"]
+    semester = request.POST["semester"]
+    telepon = request.POST["telepon"]
+    alamat = request.POST["alamat"]
+    jenisKelamin = request.POST["jenisKelamin"]
 
-    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan=golongan, semester=semester,
+    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan_id=golongan, semester=semester,
                         telepon=telepon, alamat=alamat, jenisKelamin=jenisKelamin)
     admins_member.save()
     return redirect('listuser')

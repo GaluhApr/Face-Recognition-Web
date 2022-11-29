@@ -63,18 +63,18 @@ Data Mahasiswa
     <tbody>
         {% for Member in Members %}
         <tr>
-            <td>{{ Member.Nim }}</td>
-            {% if Member.Foto %}
+            <td>{{ Member.nim }}</td>
+            {% if Member.foto %}
             <td><img src="{{ Member.Foto.url }}" width="100px" height="100px" /></td>
             {% else %}
             <td><img src="upload/Members.png" width="100px" height="100px" /></td>
             {% endif %}
-            <td>{{ Member.Nama }}</td>
-            <td>{{ Member.Kelas }}</td>
-            <td>{{ Member.Semester }}</td>
-            <td>{{ Member.Telepon }}</td>
-            <td>{{ Member.Alamat }}</td>
-            <td>{{ Member.Jenis_Kelamin }}</td>
+            <td>{{ Member.nama }}</td>
+            <td>{{ Member.golongan }}</td>
+            <td>{{ Member.semester }}</td>
+            <td>{{ Member.telepon }}</td>
+            <td>{{ Member.alamat }}</td>
+            <td>{{ Member.jenisKelamin }}</td>
             <td>
                 <div class="row justify-content-start">
                     <div class="col-5">

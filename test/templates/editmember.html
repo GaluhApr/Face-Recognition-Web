@@ -22,19 +22,19 @@ Edit Data
         {% csrf_token %}
         <div class="mb-3">
             <label>Nim</label>
-            <input type="text" id="Nim" class="form-control" name="Nim"  value="{{Member.Nim}}">
+            <input type="text" id="Nim" class="form-control" name="Nim"  value="{{Member.nim}}">
         </div>
         <div class="mb-3">
             <label>Foto</label>
-            <input type="file" id="Foto" class="form-control" name="Foto" accept="image/*" value="{{Member.Foto}}">
+            <input type="file" id="Foto" class="form-control" name="Foto" accept="image/*" value="{{Member.foto}}">
         </div>
         <div class="mb-3">
             <label>Nama</label>
-            <input type="text" id="Nama" class="form-control" name="Nama" value="{{Member.Nama}}">
+            <input type="text" id="Nama" class="form-control" name="Nama" value="{{Member.nama}}">
         </div>
         <div class="mb-3">
             <label>Kelas</label>
-            <select class="form-select" aria-label="Default select example" value="{{Member.Kelas}}"
+            <select class="form-select" aria-label="Default select example" value="{{Member.golongan}}"
                 name="Kelas">
 
                 <option value="A">A</option>
@@ -48,7 +48,7 @@ Edit Data
         </div>
         <div class="mb-3">
             <label>Semester</label>
-            <select class="form-select" aria-label="Default select example" value="{{Member.Semester}}"
+            <select class="form-select" aria-label="Default select example" value="{{Member.semester}}"
                 name="Semester">
 
                 <option value="1">1</option>
@@ -64,15 +64,15 @@ Edit Data
         </div>
         <div class="mb-3">
             <label>Telepon</label>
-            <input type="text" id="Telepon" class="form-control" name="Telepon" value="{{Member.Telepon}}">
+            <input type="text" id="Telepon" class="form-control" name="Telepon" value="{{Member.telepon}}">
         </div>
         <div class="mb-3">
             <label>Alamat</label>
-            <input type="text" id="Alamat" class="form-control" name="Alamat" value="{{Member.Alamat}}">
+            <input type="text" id="Alamat" class="form-control" name="Alamat" value="{{Member.alamat}}">
         </div>
         <div class="mb-3">
             <label>Jenis Kelamin</label>
-            <select class="form-select" aria-label="Default select example" value="{{Member.Jenis_Kelamin}}"
+            <select class="form-select" aria-label="Default select example" value="{{Member.jenisKelamin}}"
                 name="Jenis_Kelamin">
 
                 <option value="Laki-laki">Laki-laki</option>

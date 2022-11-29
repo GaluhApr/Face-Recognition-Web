@@ -94,12 +94,12 @@ class jadwalform(forms.ModelForm):
         }
 
         widgets = {
-            'namaDosen': forms.Select(attrs={'class': 'form-control' }),
+            'namaDosen': forms.Select(attrs={'class': 'form-control', 'value': 'CONSTANT_VALUE'}),
             'golongan': forms.Select(attrs={'class': 'form-control'}),
             'matkul': forms.Select(attrs={'class': 'form-control'}),
             'ruangan': forms.TextInput(attrs={'class': 'form-control'}),
             'hari': forms.TextInput(attrs={'class': 'form-control'}),
-            'jamMulai': forms.TimeInput(attrs={'type': 'time' }),
-            'jamSelesai': forms.TimeInput(attrs={'type': 'time' }),
+            'jamMulai': forms.TimeInput(attrs={'type': 'time' ,'class': 'form-control'}),
+            'jamSelesai': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control' }),
         }
         
