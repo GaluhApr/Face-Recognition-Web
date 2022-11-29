@@ -273,7 +273,7 @@ def exportjadwal(request):
     jadwal = jadwaltable()
     dataset = jadwal.export()
     response = HttpResponse(
-        dataset.xls, content_type='application/vnd.ms-excel')
+        dataset.xls, content_type='application/vnd.ms-excel')  # type: ignore
     response['Content-Disposition'] = 'attachment; filename="jadwal.xls"'
     return response
 
@@ -282,7 +282,7 @@ def exportmahasiswa(request):
     mahasiswa = mahasiswatable()
     dataset = mahasiswa.export()
     response = HttpResponse(
-        dataset.xls, content_type='application/vnd.ms-excel')
+        dataset.xls, content_type='application/vnd.ms-excel')  # type: ignore
     response['Content-Disposition'] = 'attachment; filename="mahasiswa.xls"'
     return response
 
@@ -291,7 +291,7 @@ def exportdosen(request):
     dosen = dosentable()
     dataset = dosen.export()
     response = HttpResponse(
-        dataset.xls, content_type='application/vnd.ms-excel')
+        dataset.xls, content_type='application/vnd.ms-excel')  # type: ignore
     response['Content-Disposition'] = 'attachment; filename="dosen.xls"'
     return response
 
@@ -300,6 +300,6 @@ def exportmatkul(request):
     matkul = matkultable()
     dataset = matkul.export()
     response = HttpResponse(
-        dataset.xls, content_type='application/vnd.ms-excel')
+        dataset.xls, content_type='application/vnd.ms-excel')  # type: ignore
     response['Content-Disposition'] = 'attachment; filename="matakuliah.xls"'
     return response
