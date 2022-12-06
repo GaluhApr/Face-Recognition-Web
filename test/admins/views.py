@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import Mahasiswa, Matkul, Dosen, Jadwal
-from .forms import Memberform, matakuliahform, dosenform, jadwalform
+from .models import Mahasiswa, Matkul, Dosen, Jadwal, Dataset
+from .forms import Memberform, matakuliahform, dosenform, jadwalform, imageform
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
 from keras.models import load_model
@@ -10,6 +10,7 @@ from numpy import expand_dims
 from .resource import jadwaltable, mahasiswatable, dosentable, matkultable
 import pickle
 import cv2
+from .functions import handle_uploaded_file
 
 
 # Create your views here.
@@ -28,29 +29,32 @@ def attendance(request):
 
 def user(request):
     members = Mahasiswa.objects.all()
+    images = Dataset.objects.all()
     context = {
         'Members': members,
-        'form': Memberform()
+        'memberform': Memberform(),
+        'imageform': imageform()
     }
 
     return render(request, 'user.html', context,)
 
 
 def createmember(request):
-    nim = request.POST["nim"]
-    foto = request.POST["foto"]
-    nama = request.POST["nama"]
-    golongan = request.POST["golongan"]
-    semester = request.POST["semester"]
-    telepon = request.POST["telepon"]
-    alamat = request.POST["alamat"]
-    jenisKelamin = request.POST["jenisKelamin"]
-
-    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan_id=golongan, semester=semester, telepon=telepon, alamat=alamat, jenisKelamin=jenisKelamin)
-    admins_member.save()
+    if request.method == 'POST':
+        form = Memberform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listuser')
     return redirect('listuser')
 
-
+def addimage(request):
+    if request.method == 'POST':
+        form = imageform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('listuser')
+    return redirect('listuser')
+        
 def delete_member(request, id):
     delmember = Mahasiswa.objects.get(id=id)
     delmember.delete()

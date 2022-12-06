@@ -1,7 +1,7 @@
 from django import forms
-from .models import Mahasiswa, Dosen, Matkul, Jadwal, Golongan, Absen, Users
+from .models import Mahasiswa, Dosen, Matkul, Jadwal, Golongan, Absen, Users, Dataset
 import os
-
+from multiupload.fields import MultiFileField, MultiMediaField, MultiImageField
 
 smt = (
     ('1', '1'),
@@ -46,6 +46,26 @@ class Memberform(forms.ModelForm):
             'jenisKelamin': forms.Select(choices=gender, attrs={'class': 'form-control'}),
         }        
         
+class imageform(forms.ModelForm):
+    class Meta:
+        model = Dataset
+        fields = "__all__"
+
+        labels = {
+            'nama': 'Nama',
+            'foto1': 'Foto 1',
+            'foto2': 'Foto 2',
+            'foto3': 'Foto 3',
+        }
+
+        widgets = {
+            'nama': forms.Select(attrs={'class': 'form-control'}),
+            'foto1': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto2': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto3': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
+            
+
 class dosenform(forms.ModelForm):
     class Meta:
         model = Dosen
@@ -102,4 +122,5 @@ class jadwalform(forms.ModelForm):
             'jamMulai': forms.TimeInput(attrs={'type': 'time' ,'class': 'form-control'}),
             'jamSelesai': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control' }),
         }
+        
         

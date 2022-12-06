@@ -25,6 +25,7 @@ urlpatterns = [
     path('createdosen/', views.createdosen, name='createdosen'),
     path('creatematkul/', views.creatematkul, name='creatematkul'),
     path('createjadwal/', views.createjadwal, name='createjadwal'),
+    path('addimages/', views.addimage, name='add-images'),
     path('matkul/', views.matkulview, name='listmatkul'),
     path('exportjadwal/xls/', views.exportjadwal, name='exportjadwal'),
     path('exportmahasiswa/xls/', views.exportmahasiswa, name='exportmahasiswa'),

@@ -78,13 +78,14 @@ class Mahasiswa(models.Model):
     
 class Dataset(models.Model):
     nama = models.ForeignKey(Mahasiswa, null=True, on_delete=models.SET_NULL)
-    foto = models.ImageField(upload_to='upload/', blank=True, null=True)
-    
+    foto1 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto2 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto3 = models.FileField(upload_to='dataset/', null=True, blank=True)
     class Meta :
         db_table = "tb_dataset"
         
     def __str__(self):
-        return "{}".format(self.foto)    
+        return "{}".format(self.foto1)    
     
 class Jadwal(models.Model):
     namaDosen = models.ForeignKey(Dosen, null=True, on_delete=models.SET_NULL)
