@@ -74,7 +74,7 @@ Data Mahasiswa
         <tr>
             <td>{{ Member.nim }}</td>
             {% if Member.foto %}
-            <td><img src="{{ Member.Foto.url }}" width="100px" height="100px" /></td>
+            <td><img src="{{ Member.foto.url }}" width="100px" height="100px" /></td>
             {% else %}
             <td><img src="upload/Members.png" width="100px" height="100px" /></td>
             {% endif %}
