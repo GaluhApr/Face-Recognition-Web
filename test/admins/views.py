@@ -46,8 +46,7 @@ def createmember(request):
     alamat = request.POST["alamat"]
     jenisKelamin = request.POST["jenisKelamin"]
 
-    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan_id=golongan, semester=semester,
-                              telepon=telepon, alamat=alamat, jenisKelamin=jenisKelamin)
+    admins_member = Mahasiswa(nim=nim, foto=foto, nama=nama, golongan_id=golongan, semester=semester, telepon=telepon, alamat=alamat, jenisKelamin=jenisKelamin)
     admins_member.save()
     return redirect('listuser')
 
@@ -64,7 +63,6 @@ def edit_member(request, id):
 
     data = {
         'nim': member_edit.nim,
-        'foto': member_edit.foto,
         'nama': member_edit.nama,
         'golongan': member_edit.golongan,
         'semester': member_edit.semester,

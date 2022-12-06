@@ -63,7 +63,6 @@ class Mahasiswa(models.Model):
     )
     
     nim = models.CharField(max_length=10)
-    foto = models.ImageField(upload_to='upload/', blank=True, null=True)
     nama = models.CharField(max_length=20)
     golongan = models.ForeignKey(Golongan, null=True, on_delete=models.SET_NULL)
     semester = models.TextField(choices=smt)
@@ -77,6 +76,15 @@ class Mahasiswa(models.Model):
     def __str__(self):
         return "{}".format(self.nama)
     
+class Dataset(models.Model):
+    nama = models.ForeignKey(Mahasiswa, null=True, on_delete=models.SET_NULL)
+    foto = models.ImageField(upload_to='upload/', blank=True, null=True)
+    
+    class Meta :
+        db_table = "tb_dataset"
+        
+    def __str__(self):
+        return "{}".format(self.foto)    
     
 class Jadwal(models.Model):
     namaDosen = models.ForeignKey(Dosen, null=True, on_delete=models.SET_NULL)
@@ -121,5 +129,7 @@ class Users(models.Model):
         
     def __str__(self):
         return "{}".format(self.username)
+    
+
     
     
