@@ -54,12 +54,31 @@ Data Mahasiswa
     </div>
 </div>
 
+<div class="modal fade" id="addimage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Foto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/admins/createmember/">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <hr style="border-top:1px solid #000; clear:both;" />
 <table id="datatablesSimple" class="table table-bordered">
     <thead>
         <tr>
             <th>Nim</th>
-            <th>Foto</th>
             <th>Nama</th>
             <th>Kelas</th>
             <th>Semester</th>
@@ -73,11 +92,6 @@ Data Mahasiswa
         {% for Member in Members %}
         <tr>
             <td>{{ Member.nim }}</td>
-            {% if Member.foto %}
-            <td><img src="{{ Member.foto.url }}" width="100px" height="100px" /></td>
-            {% else %}
-            <td><img src="upload/Members.png" width="100px" height="100px" /></td>
-            {% endif %}
             <td>{{ Member.nama }}</td>
             <td>{{ Member.golongan }}</td>
             <td>{{ Member.semester }}</td>
@@ -86,18 +100,22 @@ Data Mahasiswa
             <td>{{ Member.jenisKelamin }}</td>
             <td>
                 <div class="row justify-content-start">
-                    <div class="col-5">
+                    <div class="col-3">
                         <form action="{% url 'edit-member' Member.id %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-warning" type="submit"><i class="fa fa-pencil"></i></button>
                         </form>
                     </div>
-                    <div class="col-5">
+                    <div class="col-3">
                         <form action="{% url 'delete-member' Member.id %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-danger" type="submit"><i class="fa fa-trash"
                                     onclick="return confirm('Are you sure want to delete ?')"></i></button>
                         </form>
+                    </div>
+                    <div class="col-3">
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addimage" type="submit"><i class="fa fa-plus"
+                                    ></i></button>
                     </div>
                 </div>
             </td>
