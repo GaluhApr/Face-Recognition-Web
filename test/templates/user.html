@@ -31,6 +31,11 @@ Data Mahasiswa
                 <button class="btn btn-success" type="submit">Export</button>
             </form>
         </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addimage">
+                Tambah Foto
+            </button>
+        </div>
     </div>
 </div>
 <!-- Modal -->
@@ -44,7 +49,7 @@ Data Mahasiswa
             <div class="modal-body">
                 <form method="POST" action="/admins/createmember/">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ memberform.as_p }}
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
@@ -62,9 +67,9 @@ Data Mahasiswa
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admins/createmember/">
+                <form method="POST" action="/admins/addimages/" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    {{ imageform.as_p }}
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" value="Submit" id="submit">Submit</button>
@@ -100,7 +105,7 @@ Data Mahasiswa
             <td>{{ Member.jenisKelamin }}</td>
             <td>
                 <div class="row justify-content-start">
-                    <div class="col-3">
+                    <div class="col-5">
                         <form action="{% url 'edit-member' Member.id %}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-warning" type="submit"><i class="fa fa-pencil"></i></button>
@@ -112,10 +117,6 @@ Data Mahasiswa
                             <button class="btn btn-danger" type="submit"><i class="fa fa-trash"
                                     onclick="return confirm('Are you sure want to delete ?')"></i></button>
                         </form>
-                    </div>
-                    <div class="col-3">
-                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addimage" type="submit"><i class="fa fa-plus"
-                                    ></i></button>
                     </div>
                 </div>
             </td>
