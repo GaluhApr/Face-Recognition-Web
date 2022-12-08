@@ -3,10 +3,10 @@ from .models import Mahasiswa, Matkul, Dosen, Jadwal
 from .forms import Memberform, matakuliahform, dosenform, jadwalform
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
-from keras.models import load_model
-import numpy as np
-from numpy import asarray
-from numpy import expand_dims
+# from keras.models import load_model
+# import numpy as np
+# from numpy import asarray
+# from numpy import expand_dims
 from .resource import jadwaltable, mahasiswatable, dosentable, matkultable
 import pickle
 import cv2
