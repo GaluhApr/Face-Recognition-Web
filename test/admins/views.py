@@ -11,10 +11,15 @@ from .resource import jadwaltable, mahasiswatable, dosentable, matkultable
 import pickle
 import cv2
 from .functions import handle_uploaded_file
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
 
+def signout(request):
+    logout(request)
+    return redirect('/')
+    
 
 def index(request):
 
