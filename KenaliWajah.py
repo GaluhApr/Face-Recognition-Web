@@ -49,6 +49,7 @@ while(1):
     face = expand_dims(face, axis=0)
     signature = MyFaceNet.predict(face)
     
+    
     min_dist=100
     identity=' '
     for key, value in database.items() :
@@ -56,8 +57,9 @@ while(1):
         if dist < min_dist:
             min_dist = dist
             identity = key
-            
-    cv2.putText(gbr1,identity, (100,100),cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2, cv2.LINE_AA)
+
+        
+    cv2.putText(gbr1, identity, (100,100),cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2, cv2.LINE_AA)
     cv2.rectangle(gbr1,(x1,y1),(x2,y2), (0,255,0), 2)
         
     cv2.imshow('res',gbr1)
