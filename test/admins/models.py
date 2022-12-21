@@ -81,6 +81,13 @@ class Dataset(models.Model):
     foto1 = models.FileField(upload_to='dataset/', null=True, blank=True)
     foto2 = models.FileField(upload_to='dataset/', null=True, blank=True)
     foto3 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto4 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto5 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto6 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto7 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto8 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto9 = models.FileField(upload_to='dataset/', null=True, blank=True)
+    foto10 = models.FileField(upload_to='dataset/', null=True, blank=True)
     class Meta :
         db_table = "tb_dataset"
         

@@ -56,6 +56,13 @@ class imageform(forms.ModelForm):
             'foto1': 'Foto 1',
             'foto2': 'Foto 2',
             'foto3': 'Foto 3',
+            'foto4': 'Foto 4',
+            'foto5': 'Foto 5',
+            'foto6': 'Foto 6',
+            'foto7': 'Foto 7',
+            'foto8': 'Foto 8',
+            'foto9': 'Foto 9',
+            'foto10': 'Foto 10',
         }
 
         widgets = {
@@ -63,6 +70,14 @@ class imageform(forms.ModelForm):
             'foto1': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'foto2': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'foto3': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto4': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto5': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto6': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto7': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto8': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto9': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'foto10': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        
         }
             
 
