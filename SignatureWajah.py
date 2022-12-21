@@ -14,7 +14,7 @@ import cv2
 HaarCascade = cv2.CascadeClassifier(cv2.samples.findFile(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'))
 MyFaceNet = load_model('facenet_keras.h5')
 
-folder='test/media/upload/'
+folder='test/media/dataset/'
 database = {}
 
 for filename in listdir(folder):
